@@ -290,6 +290,7 @@
     }
 
     function createSwitcher(lang) {
+        if (document.body.getAttribute('data-page') === 'glyphclock') return;
         var toolbar = document.querySelector('.toolbar');
         if (!toolbar) return;
 
