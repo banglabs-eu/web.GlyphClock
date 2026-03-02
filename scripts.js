@@ -51,32 +51,19 @@
         if (btn) btn.textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19';
     }
 
-    // Header
-
-    var header = document.createElement('header');
-    header.className = 'site-header';
-
-    var headerBrand = document.createElement('a');
-    headerBrand.href = 'index.html';
-    headerBrand.className = 'site-header__brand';
-    headerBrand.textContent = 'GlyphClock';
-    header.appendChild(headerBrand);
-
-    var headerBang = document.createElement('a');
-    headerBang.href = 'https://bang-labs.eu';
-    headerBang.className = 'bang-labs';
-    headerBang.target = '_blank';
-    headerBang.rel = 'noopener';
-    headerBang.textContent = 'Bang Labs';
-    header.appendChild(headerBang);
-
-    document.body.insertBefore(header, document.body.firstChild);
-
     // Toolbar
 
     var toolbar = document.createElement('div');
     toolbar.className = 'toolbar';
     document.body.appendChild(toolbar);
+
+    var bangLink = document.createElement('a');
+    bangLink.href = 'https://bang-labs.eu';
+    bangLink.className = 'toolbar-btn bang-labs';
+    bangLink.target = '_blank';
+    bangLink.rel = 'noopener';
+    bangLink.textContent = 'Bang Labs';
+    toolbar.appendChild(bangLink);
 
     var page = document.body.getAttribute('data-page');
 
