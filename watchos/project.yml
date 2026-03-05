@@ -22,12 +22,13 @@ targets:
       - target: GlyphClock WidgetExtension
 
   GlyphClock WidgetExtension:
-    type: widget-extension
+    type: app-extension
     platform: watchOS
     sources:
       - path: GlyphClock Widget
     settings:
       INFOPLIST_KEY_CFBundleDisplayName: GlyphClock Widget
+      INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: com.apple.widgetkit-extension
       GENERATE_INFOPLIST_FILE: true
       SWIFT_VERSION: "5.9"
       PRODUCT_BUNDLE_IDENTIFIER: eu.bang-labs.glyphclock.watchapp.widget
