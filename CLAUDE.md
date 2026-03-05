@@ -12,9 +12,13 @@ Emoji sequence: 🥐→🦋→🌷→☂️→🌵→🎈→👓→⚓→🦚→
 
 Pure static site — vanilla JavaScript, HTML5, CSS3. No npm, no build step, no dependencies. Both JS files use IIFEs with `'use strict'`.
 
+## Local Development
+
+Open any HTML file directly in a browser, or use any static server (e.g. `python3 -m http.server`). No build step needed.
+
 ## Deployment
 
-Deployed via GitHub Actions on push to `main`. Workflow files in `.github/workflows/`. No build step — files are served directly from root.
+Two Azure Static Web Apps deployments triggered by GitHub Actions on push to `main` or PR events. Workflow files in `.github/workflows/`. Custom domain: `glyphclock.bang-labs.eu` (CNAME).
 
 To deploy: `git push origin main`
 
@@ -23,20 +27,23 @@ To deploy: `git push origin main`
 - **index.html** — Landing page, links to about and glyphclock pages
 - **glyphclock.html** — Main display page showing current time symbol (large emoji)
 - **about.html** — Explanation of the GlyphClock concept, credits Bang Labs as creator
-- **scripts.js** — Application logic (IIFE):
-  - Time calculation: array-based lookup using `SYMBOLS` and `SUBS` arrays with `Math.floor(minutes / 90)` for block and `Math.floor((minutes % 90) / 30)` for sub-period
-  - `getMinutesSinceUtcMidnight()` — Uses `getUTCHours()`/`getUTCMinutes()` directly
-  - `updateValues()` — Updates `#currentTime` and `#currentTimeTitle` (with null guards for pages without these elements)
-  - `startTime()` — Aligns refresh to 30-minute boundaries via setTimeout then setInterval
-  - Dark mode: detects system preference via `prefers-color-scheme`, persists to localStorage, toggle button in toolbar
-  - Toolbar: creates a fixed top-right flex container; adds home link (non-index pages), dark mode toggle. Language switcher is appended by i18n.js
-  - Page transitions: intercepts internal link clicks, fades out body before navigating
-- **i18n.js** — Internationalization (IIFE):
-  - 24 EU languages supported (bg, hr, cs, da, nl, en, et, fi, fr, de, el, hu, ga, it, lv, lt, mt, pl, pt, ro, sk, sl, es, sv)
-  - Browser language autodetection with localStorage persistence
-  - Translates elements with `data-i18n` attributes using `innerHTML`
-  - Handles page titles via `data-page` attribute and `title.*` keys
-  - Handles `<meta name="description">` via `meta.description.*` keys
-  - Language switcher dropdown appended to `.toolbar`
-- **css/styles.css** — Layout, dark mode (`.dark` class on body), toolbar (`.toolbar` flex container, `.toolbar-btn` shared button style), language switcher dropdown, page fade transitions
-- **robots.txt** — Allows all crawlers
+- **scripts.js** — Application logic (IIFE): time calculation, dark mode, toolbars, page transitions
+- **i18n.js** — Internationalization (IIFE): 24 EU languages, browser autodetection, translation via `data-i18n` attributes
+- **css/styles.css** — Layout, dark mode, toolbar styles, language switcher dropdown, page fade transitions
+
+## Key Patterns (cross-file)
+
+**Script load order matters**: `scripts.js` before `i18n.js` — i18n appends the language switcher to `.toolbar`, which is created by scripts.js.
+
+**Dark mode applies `.dark` on `<html>` (documentElement), not `<body>`**. Each HTML page has an inline `<script>` in `<head>` that applies the dark class before first paint to prevent flash. This pattern must be replicated on any new page.
+
+**Two toolbars**: `.toolbar-left` (fixed top-left, contains Bang Labs link) and `.toolbar` (fixed top-right, contains home link + dark mode toggle + language switcher).
+
+**`data-page` attribute on `<body>`** drives multiple behaviors:
+- scripts.js: shows home link (🏠) only on non-index pages
+- i18n.js: resolves `title.*` and `meta.description.*` translation keys
+- i18n.js: hides the language switcher on the `glyphclock` page
+
+**Adding translations**: Each i18n key in the `T` object requires entries for all 24 languages. HTML elements use `data-i18n="key"` and are translated via `innerHTML`.
+
+**Page transitions**: Internal links (non-http, non-hash, non-mailto) are intercepted — body fades out with `.navigating` class, then navigates after 300ms.
