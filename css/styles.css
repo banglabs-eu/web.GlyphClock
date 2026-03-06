@@ -143,6 +143,16 @@ a {
   display: flex;
   gap: 0.5rem;
   align-items: flex-start;
+  transition: opacity 0.5s ease;
+}
+
+#glyphTimeline {
+  transition: opacity 0.5s ease;
+}
+
+.toolbar-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .toolbar {
@@ -181,6 +191,44 @@ a {
 .dark .toolbar-btn:hover {
   background: rgba(50, 50, 80, 0.9);
   border-color: rgba(120, 120, 160, 0.6);
+}
+
+.bang-labs {
+  background: linear-gradient(135deg, #c7d2fe, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: none;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 16px;
+  padding: 0;
+}
+
+.bang-labs:hover {
+  opacity: 0.8;
+  background: linear-gradient(135deg, #c7d2fe, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: none;
+}
+
+.dark .bang-labs {
+  background: linear-gradient(135deg, #c7d2fe, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: none;
+}
+
+.dark .bang-labs:hover {
+  opacity: 0.8;
+  background: linear-gradient(135deg, #c7d2fe, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: none;
 }
 
 /* Language switcher dropdown */

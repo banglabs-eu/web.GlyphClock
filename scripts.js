@@ -159,6 +159,41 @@
     });
     toolbar.appendChild(darkBtn);
 
+    // Cross-project theme carry-over
+    var SIBLING_DOMAINS = ['snippets.eu','cli.snippets.eu','web.snippets.eu','glyphclock.bang-labs.eu'];
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href]');
+        if (!a) return;
+        try {
+            var url = new URL(a.href);
+            if (url.hostname === location.hostname) return;
+            if (SIBLING_DOMAINS.indexOf(url.hostname) === -1) return;
+            var theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            url.searchParams.set('theme', theme);
+            a.href = url.toString();
+        } catch (err) {}
+    });
+
+    // Auto-hide toolbars and timeline after 7s of inactivity
+    var hideTimer;
+    var timeline = document.getElementById('glyphTimeline');
+    function hideToolbars() {
+        toolbarLeft.classList.add('toolbar-hidden');
+        toolbar.classList.add('toolbar-hidden');
+        if (timeline) timeline.classList.add('toolbar-hidden');
+    }
+    function showToolbars() {
+        toolbarLeft.classList.remove('toolbar-hidden');
+        toolbar.classList.remove('toolbar-hidden');
+        if (timeline) timeline.classList.remove('toolbar-hidden');
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(hideToolbars, 7000);
+    }
+    hideTimer = setTimeout(hideToolbars, 7000);
+    document.addEventListener('mousemove', showToolbars);
+    document.addEventListener('touchstart', showToolbars);
+    document.addEventListener('scroll', showToolbars);
+
     // Page transitions
     document.addEventListener('click', function (e) {
         var link = e.target.closest('a[href]');
