@@ -2,26 +2,49 @@
     'use strict';
 
     var SYMBOLS = ['🥐','🦋','🌷','☂️','🌵','🎈','👓','⚓','🦚','🤖','⭐','☁️','🌲','🪁','🪑','♻'];
-    var SUBS = ['一','二','三'];
+    var TOTAL_PHASES = 48;
+    var testMode = false;
+    var testPhase = 0;
 
     function getMinutesSinceUtcMidnight() {
         var now = new Date();
         return now.getUTCHours() * 60 + now.getUTCMinutes();
     }
 
-    function getCurrentSymbol() {
+    function getPhaseFromTime() {
         var minutes = getMinutesSinceUtcMidnight();
         var block = Math.min(Math.floor(minutes / 90), 15);
         var sub = Math.min(Math.floor((minutes % 90) / 30), 2);
-        return SUBS[sub] + SYMBOLS[block];
+        return block * 3 + sub;
+    }
+
+    function getDisplayForPhase(phase) {
+        var block = Math.floor(phase / 3);
+        var sub = phase % 3;
+        return { glyph: SYMBOLS[block], count: sub + 1 };
+    }
+
+    function renderPhase(phase) {
+        var info = getDisplayForPhase(phase);
+        var text = '';
+        for (var i = 0; i < info.count; i++) text += info.glyph;
+
+        var el = document.getElementById('currentTime');
+        var titleEl = document.getElementById('currentTimeTitle');
+        if (el) {
+            el.className = 'glyph-' + info.count;
+            if (info.count === 3) {
+                el.innerHTML = info.glyph + '<br>' + info.glyph + info.glyph;
+            } else {
+                el.textContent = text;
+            }
+        }
+        if (titleEl) titleEl.textContent = text;
     }
 
     function updateValues() {
-        var symbol = getCurrentSymbol();
-        var el = document.getElementById('currentTime');
-        var titleEl = document.getElementById('currentTimeTitle');
-        if (el) el.textContent = symbol;
-        if (titleEl) titleEl.textContent = symbol;
+        if (testMode) return;
+        renderPhase(getPhaseFromTime());
     }
 
     function startTime() {
@@ -33,6 +56,38 @@
             updateValues();
             setInterval(updateValues, 30 * 60000);
         }, msUntilNext);
+    }
+
+    // Test mode
+
+    function updateTestInfo() {
+        var infoEl = document.getElementById('testInfo');
+        if (!infoEl) return;
+        var info = getDisplayForPhase(testPhase);
+        infoEl.textContent = info.glyph + ' ' + (testPhase + 1) + '/' + TOTAL_PHASES;
+    }
+
+    function enterTestMode() {
+        testMode = true;
+        testPhase = getPhaseFromTime();
+        renderPhase(testPhase);
+        updateTestInfo();
+        var controls = document.getElementById('testControls');
+        if (controls) controls.style.display = '';
+    }
+
+    function exitTestMode() {
+        testMode = false;
+        var controls = document.getElementById('testControls');
+        if (controls) controls.style.display = 'none';
+        updateValues();
+    }
+
+    function testNavigate(delta) {
+        if (!testMode) return;
+        testPhase = ((testPhase + delta) % TOTAL_PHASES + TOTAL_PHASES) % TOTAL_PHASES;
+        renderPhase(testPhase);
+        updateTestInfo();
     }
 
     // Dark mode
@@ -106,5 +161,27 @@
         }, 300);
     });
 
-    document.addEventListener('DOMContentLoaded', startTime);
+    document.addEventListener('DOMContentLoaded', function () {
+        startTime();
+
+        var toggle = document.getElementById('testModeToggle');
+        if (toggle) {
+            toggle.addEventListener('click', function () {
+                if (testMode) exitTestMode();
+                else enterTestMode();
+            });
+        }
+
+        var prevBtn = document.getElementById('testPrev');
+        var nextBtn = document.getElementById('testNext');
+        if (prevBtn) prevBtn.addEventListener('click', function () { testNavigate(-1); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { testNavigate(1); });
+
+        document.addEventListener('keydown', function (e) {
+            if (!testMode) return;
+            if (e.key === 'ArrowLeft') { testNavigate(-1); e.preventDefault(); }
+            if (e.key === 'ArrowRight') { testNavigate(1); e.preventDefault(); }
+            if (e.key === 'Escape') { exitTestMode(); e.preventDefault(); }
+        });
+    });
 })();

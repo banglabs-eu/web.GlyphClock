@@ -13,6 +13,53 @@ h2 {
   text-align: center;
 }
 
+#currentTime {
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+#currentTime.glyph-1 { font-size: 200px; }
+#currentTime.glyph-2 { font-size: 120px; }
+#currentTime.glyph-3 { font-size: 85px; line-height: 1.1; }
+
+/* Test mode controls */
+.test-controls {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.test-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: 1px solid rgba(150, 150, 150, 0.4);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  color: inherit;
+  margin: 0 0.5rem;
+}
+
+.test-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.dark .test-btn {
+  border-color: rgba(100, 100, 140, 0.4);
+}
+
+.dark .test-btn:hover {
+  background: rgba(80, 80, 120, 0.15);
+}
+
+#testModeToggle:hover {
+  filter: brightness(1.2);
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -23,6 +70,18 @@ body {
   color: #222;
   transition: background-color 0.3s, color 0.3s, opacity 0.3s ease;
   animation: fadeIn 0.3s ease;
+  margin: 0;
+}
+
+body.clock-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-center {
+  text-align: center;
 }
 
 body.navigating {
