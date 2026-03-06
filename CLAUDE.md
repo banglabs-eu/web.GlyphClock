@@ -24,6 +24,7 @@ To deploy: `git push origin main`
 
 ## Architecture
 
+- **glyphclock-widget.js** — Embeddable widget (IIFE). Injects its own CSS and a fixed bottom-right glyph clock into any page via a single `<script>` tag. Self-contained — no dependencies on the rest of this repo.
 - **index.html** — Landing page, links to about and glyphclock pages
 - **glyphclock.html** — Main display page showing current time symbol (large emoji)
 - **about.html** — Explanation of the GlyphClock concept, credits Bang Labs as creator
