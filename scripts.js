@@ -37,7 +37,6 @@
     function renderPhase(phase) {
         var info = getDisplayForPhase(phase);
         var el = document.getElementById('currentTime');
-        var titleEl = document.getElementById('currentTimeTitle');
         if (el) {
             ensureGlyphSpans(el);
             var spans = el.querySelectorAll('.glyph-item');
@@ -45,11 +44,6 @@
                 spans[i].textContent = info.glyph;
             }
             el.className = 'glyph-' + info.count;
-        }
-        if (titleEl) {
-            var text = '';
-            for (var i = 0; i < info.count; i++) text += info.glyph;
-            titleEl.textContent = text;
         }
     }
 
@@ -117,8 +111,6 @@
 
     // Navigation
 
-    var page = document.body.getAttribute('data-page');
-
     var nav = document.createElement('nav');
     nav.className = 'nav';
     nav.id = 'nav';
@@ -126,23 +118,11 @@
     var navInner = document.createElement('div');
     navInner.className = 'nav-inner';
 
-    // Brand
     var logoLink = document.createElement('a');
     logoLink.href = 'index.html';
     logoLink.className = 'nav-logo';
     logoLink.textContent = 'GlyphClock';
 
-    // Nav links
-    var navLinks = document.createElement('div');
-    navLinks.className = 'nav-links';
-
-    var clockLink = document.createElement('a');
-    clockLink.href = 'glyphclock.html';
-    clockLink.textContent = '\uD83D\uDD70\uFE0F';
-    if (page === 'glyphclock') clockLink.className = 'nav-active';
-    navLinks.appendChild(clockLink);
-
-    // Nav actions
     var navActions = document.createElement('div');
     navActions.className = 'nav-actions';
 
@@ -162,7 +142,6 @@
     navActions.appendChild(darkBtn);
 
     navInner.appendChild(logoLink);
-    navInner.appendChild(navLinks);
     navInner.appendChild(navActions);
     nav.appendChild(navInner);
     document.body.appendChild(nav);
@@ -182,45 +161,41 @@
         } catch (err) {}
     });
 
-    // Auto-hide nav and timeline after 7s of inactivity
+    // Auto-hide nav after 7s of inactivity
     var hideTimer;
-    var timeline = document.getElementById('glyphTimeline');
     function hideNav() {
         nav.classList.add('nav-hidden');
-        if (timeline) timeline.classList.add('nav-hidden');
     }
     function showNav() {
-        if (document.body.classList.contains('clock-only')) return;
         nav.classList.remove('nav-hidden');
-        if (timeline) timeline.classList.remove('nav-hidden');
         clearTimeout(hideTimer);
         hideTimer = setTimeout(hideNav, 7000);
     }
     hideTimer = setTimeout(hideNav, 7000);
-    document.addEventListener('mousemove', showNav);
-    document.addEventListener('touchstart', showNav);
-    document.addEventListener('scroll', showNav);
 
-    // Fade to clock-only after 11 seconds
-    if (document.querySelector('.content-layer')) {
-        setTimeout(function () {
-            document.body.classList.add('clock-only');
-            hideNav();
-        }, 11000);
+    // Fade to clock-only after 11s, restore on interaction
+    var fadeTimer;
+    var hasContentLayer = !!document.querySelector('.content-layer');
+    function fadeToClockOnly() {
+        document.body.classList.add('clock-only');
+        hideNav();
     }
-
-    // Page transitions
-    document.addEventListener('click', function (e) {
-        var link = e.target.closest('a[href]');
-        if (!link) return;
-        var href = link.getAttribute('href');
-        if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) return;
-        e.preventDefault();
-        document.body.classList.add('navigating');
-        setTimeout(function () {
-            window.location.href = href;
-        }, 300);
-    });
+    function handleActivity() {
+        if (document.body.classList.contains('clock-only')) {
+            document.body.classList.remove('clock-only');
+        }
+        showNav();
+        if (hasContentLayer) {
+            clearTimeout(fadeTimer);
+            fadeTimer = setTimeout(fadeToClockOnly, 11000);
+        }
+    }
+    if (hasContentLayer) {
+        fadeTimer = setTimeout(fadeToClockOnly, 11000);
+    }
+    document.addEventListener('mousemove', handleActivity);
+    document.addEventListener('touchstart', handleActivity);
+    document.addEventListener('scroll', handleActivity);
 
     document.addEventListener('DOMContentLoaded', function () {
         startTime();

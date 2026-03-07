@@ -24,27 +24,20 @@ To deploy: `git push origin main`
 
 ## Architecture
 
-- **glyphclock-widget.js** — Embeddable widget (IIFE). Injects its own CSS and a fixed bottom-right glyph clock into any page via a single `<script>` tag. Self-contained — no dependencies on the rest of this repo.
-- **index.html** — Landing page, links to about and glyphclock pages
-- **glyphclock.html** — Main display page showing current time symbol (large emoji)
-- **about.html** — Explanation of the GlyphClock concept, credits Bang Labs as creator
-- **scripts.js** — Application logic (IIFE): time calculation, dark mode, toolbars, page transitions
+- **index.html** — Single page: GlyphClock explanation, live clock display, credits Bang Labs as creator
+- **scripts.js** — Application logic (IIFE): time calculation, dark mode, nav bar, clock-only fade
 - **i18n.js** — Internationalization (IIFE): 24 EU languages, browser autodetection, translation via `data-i18n` attributes
-- **css/styles.css** — Layout, dark mode, toolbar styles, language switcher dropdown, page fade transitions
+- **css/styles.css** — Layout, dark mode, nav bar, language switcher dropdown, clock-only fade transitions
+- **glyphclock-widget.js** — Embeddable widget (IIFE). Injects its own CSS and a fixed bottom-right glyph clock into any page via a single `<script>` tag. Self-contained — no dependencies on the rest of this repo.
 
 ## Key Patterns (cross-file)
 
-**Script load order matters**: `scripts.js` before `i18n.js` — i18n appends the language switcher to `.toolbar`, which is created by scripts.js.
+**Script load order matters**: `scripts.js` before `i18n.js` — i18n appends the language switcher to `.nav-actions`, which is created by scripts.js.
 
-**Dark mode applies `.dark` on `<html>` (documentElement), not `<body>`**. Each HTML page has an inline `<script>` in `<head>` that applies the dark class before first paint to prevent flash. This pattern must be replicated on any new page.
+**Dark mode applies `.dark` on `<html>` (documentElement), not `<body>`**. The inline `<script>` in `<head>` applies the dark class before first paint to prevent flash.
 
-**Two toolbars**: `.toolbar-left` (fixed top-left, contains Bang Labs link) and `.toolbar` (fixed top-right, contains home link + dark mode toggle + language switcher).
-
-**`data-page` attribute on `<body>`** drives multiple behaviors:
-- scripts.js: shows home link (🏠) only on non-index pages
-- i18n.js: resolves `title.*` and `meta.description.*` translation keys
-- i18n.js: hides the language switcher on the `glyphclock` page
+**`data-page` attribute on `<body>`** drives i18n behavior: resolves `title.*` and `meta.description.*` translation keys.
 
 **Adding translations**: Each i18n key in the `T` object requires entries for all 24 languages. HTML elements use `data-i18n="key"` and are translated via `innerHTML`.
 
-**Page transitions**: Internal links (non-http, non-hash, non-mailto) are intercepted — body fades out with `.navigating` class, then navigates after 300ms.
+**Clock-only mode**: After 11s of inactivity, non-clock elements in `.about` fade out via `.clock-only` class. Mouse/touch/scroll restores them and resets the timer.

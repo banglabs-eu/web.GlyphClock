@@ -11,9 +11,28 @@
   <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');if(p==='light'||p==='dark'){localStorage.setItem('darkMode',p==='dark');if(p==='dark')document.documentElement.classList.add('dark');return}var d=localStorage.getItem('darkMode');if(d==='true'||(d===null&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()</script>
 </head>
 <body data-page="index">
-  <h1>GlyphClock</h1>
-  <p data-i18n="index.intro">The start of <a href="about.html">GlyphClock</a>.</p>
-  <h2><a href="glyphclock.html">🕰️</a></h2>
+  <div class="content-layer">
+    <div class="about">
+      <h1 data-i18n="title.about">About GlyphClock</h1>
+
+      <p class="about-text" data-i18n="about.desc">GlyphClock is a timezone and language free time system. The 24-hour day is divided into 16 blocks of 90 minutes, each block with a unique emoji. Each 90 minute period has 3 sub-periods of 30 minutes, shown by displaying one, two, or three copies of the glyph.</p>
+
+      <div class="about-clock">
+        <h2 id="currentTime"></h2>
+        <div id="testControls" class="test-controls" style="display:none">
+          <button id="testPrev" class="test-btn">◀</button>
+          <span id="testInfo"></span>
+          <button id="testNext" class="test-btn">▶</button>
+        </div>
+      </div>
+
+      <div class="about-glyphs" aria-hidden="true">
+        <span>🥐</span><span>🦋</span><span>🌷</span><span>☂️</span><span>🌵</span><span>🎈</span><span>👓</span><span>⚓</span><span>🦚</span><span id="testModeToggle" style="cursor:pointer" title="Test mode">🤖</span><span>⭐</span><span>☁️</span><span>🌲</span><span>🪁</span><span>🪑</span><span>♻</span>
+      </div>
+
+      <p class="about-creator" data-i18n="about.creator">Created by <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.</p>
+    </div>
+  </div>
   <script src="scripts.js"></script>
   <script src="i18n.js"></script>
 </body>

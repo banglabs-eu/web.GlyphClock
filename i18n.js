@@ -16,6 +16,16 @@
     for (var k = 0; k < LANGS.length; k++) VALID[LANGS[k][0]] = true;
 
     var T = {
+        'title.index': {
+            en: 'GlyphClock', bg: 'GlyphClock', hr: 'GlyphClock',
+            cs: 'GlyphClock', da: 'GlyphClock', nl: 'GlyphClock',
+            et: 'GlyphClock', fi: 'GlyphClock', fr: 'GlyphClock',
+            de: 'GlyphClock', el: 'GlyphClock', hu: 'GlyphClock',
+            ga: 'GlyphClock', it: 'GlyphClock', lv: 'GlyphClock',
+            lt: 'GlyphClock', mt: 'GlyphClock', pl: 'GlyphClock',
+            pt: 'GlyphClock', ro: 'GlyphClock', sk: 'GlyphClock',
+            sl: 'GlyphClock', es: 'GlyphClock', sv: 'GlyphClock'
+        },
         'title.about': {
             en: 'About GlyphClock',
             bg: 'За GlyphClock',
@@ -41,32 +51,6 @@
             sl: 'O GlyphClock',
             es: 'Acerca de GlyphClock',
             sv: 'Om GlyphClock'
-        },
-        'index.intro': {
-            en: 'About <a href="about.html">GlyphClock</a>.',
-            bg: 'Относно <a href="about.html">GlyphClock</a>.',
-            hr: 'O <a href="about.html">GlyphClock</a>.',
-            cs: 'O <a href="about.html">GlyphClock</a>.',
-            da: 'Om <a href="about.html">GlyphClock</a>.',
-            nl: 'Over <a href="about.html">GlyphClock</a>.',
-            et: '<a href="about.html">GlyphClock</a>\u2019i kohta.',
-            fi: 'Tietoa <a href="about.html">GlyphClock</a>ista.',
-            fr: 'À propos de <a href="about.html">GlyphClock</a>.',
-            de: 'Über <a href="about.html">GlyphClock</a>.',
-            el: 'Σχετικά με το <a href="about.html">GlyphClock</a>.',
-            hu: 'A <a href="about.html">GlyphClock</a>ról.',
-            ga: 'Faoi <a href="about.html">GlyphClock</a>.',
-            it: 'Informazioni su <a href="about.html">GlyphClock</a>.',
-            lv: 'Par <a href="about.html">GlyphClock</a>.',
-            lt: 'Apie <a href="about.html">GlyphClock</a>.',
-            mt: 'Dwar <a href="about.html">GlyphClock</a>.',
-            pl: 'O <a href="about.html">GlyphClock</a>.',
-            pt: 'Sobre o <a href="about.html">GlyphClock</a>.',
-            ro: 'Despre <a href="about.html">GlyphClock</a>.',
-            sk: 'O <a href="about.html">GlyphClock</a>.',
-            sl: 'O <a href="about.html">GlyphClock</a>.',
-            es: 'Acerca de <a href="about.html">GlyphClock</a>.',
-            sv: 'Om <a href="about.html">GlyphClock</a>.'
         },
         'about.desc': {
             en: 'GlyphClock is a timezone and language free time system. The 24-hour day is divided into 16 blocks of 90 minutes, each block with a unique emoji. Each 90 minute period has 3 sub-periods of 30 minutes, shown by displaying one, two, or three copies of the glyph.',
@@ -146,58 +130,6 @@
             es: 'Un sistema de tiempo sin zonas horarias que divide el día en 16 bloques simbólicos.',
             sv: 'Ett tidszonsfritt tidssystem som delar upp dygnet i 16 symboliska block.'
         },
-        'meta.description.about': {
-            en: 'Learn about GlyphClock, a timezone-free time system replacing conventional clocks with symbols.',
-            bg: 'Научете за GlyphClock, система за време без часови зони, заменяща конвенционалните часовници със символи.',
-            hr: 'Saznajte o GlyphClock, sustavu vremena bez vremenskih zona koji zamjenjuje konvencionalne satove simbolima.',
-            cs: 'Zjistěte více o GlyphClock, systému času bez časových pásem nahrazujícím konvenční hodiny symboly.',
-            da: 'Lær om GlyphClock, et tidszonefrit tidssystem der erstatter konventionelle ure med symboler.',
-            nl: 'Leer over GlyphClock, een tijdzonevrij tijdsysteem dat conventionele klokken vervangt door symbolen.',
-            et: 'Tutvu GlyphClock\'iga, ajavöönditeta ajasüsteemiga, mis asendab tavalised kellad sümbolitega.',
-            fi: 'Tutustu GlyphClocken, aikavyöhykkeettömään aikajärjestelmään, joka korvaa perinteiset kellot symboleilla.',
-            fr: 'Découvrez GlyphClock, un système horaire sans fuseaux horaires remplaçant les horloges conventionnelles par des symboles.',
-            de: 'Erfahren Sie mehr über GlyphClock, ein zeitzonenfreies Zeitsystem, das herkömmliche Uhren durch Symbole ersetzt.',
-            el: 'Μάθετε για το GlyphClock, ένα σύστημα χρόνου χωρίς ζώνες ώρας που αντικαθιστά τα συμβατικά ρολόγια με σύμβολα.',
-            hu: 'Ismerje meg a GlyphClock-ot, egy időzóna-mentes időrendszert, amely szimbólumokkal váltja fel a hagyományos órákat.',
-            ga: 'Foghlaim faoi GlyphClock, córas ama gan chriosanna ama a chuireann siombailí in ionad gnáthchloig.',
-            it: 'Scopri GlyphClock, un sistema orario senza fusi orari che sostituisce gli orologi convenzionali con simboli.',
-            lv: 'Uzziniet par GlyphClock, laika sistēmu bez laika joslām, kas aizstāj parastos pulksteņus ar simboliem.',
-            lt: 'Sužinokite apie GlyphClock, laiko sistemą be laiko juostų, pakeičiančią įprastus laikrodžius simboliais.',
-            mt: 'Tgħallem dwar GlyphClock, sistema ta\' ħin mingħajr żoni tal-ħin li tissostitwixxi l-arloġġi konvenzjonali b\'simboli.',
-            pl: 'Poznaj GlyphClock, system czasu bez stref czasowych zastępujący konwencjonalne zegary symbolami.',
-            pt: 'Conheça o GlyphClock, um sistema de tempo sem fusos horários que substitui relógios convencionais por símbolos.',
-            ro: 'Află despre GlyphClock, un sistem de timp fără fusuri orare care înlocuiește ceasurile convenționale cu simboluri.',
-            sk: 'Spoznajte GlyphClock, systém času bez časových pásiem nahrádzajúci konvenčné hodiny symbolmi.',
-            sl: 'Spoznajte GlyphClock, časovni sistem brez časovnih pasov, ki nadomešča običajne ure s simboli.',
-            es: 'Conoce GlyphClock, un sistema de tiempo sin zonas horarias que reemplaza los relojes convencionales con símbolos.',
-            sv: 'Lär dig om GlyphClock, ett tidszonsfritt tidssystem som ersätter konventionella klockor med symboler.'
-        },
-        'meta.description.glyphclock': {
-            en: 'See the current GlyphClock \u2014 a universal, timezone-free time shown as symbols.',
-            bg: 'Вижте текущото GlyphClock \u2014 универсално време без часови зони, показано чрез символи.',
-            hr: 'Pogledajte trenutno GlyphClock \u2014 univerzalno vrijeme bez vremenskih zona prikazano simbolima.',
-            cs: 'Podívejte se na aktuální GlyphClock \u2014 univerzální čas bez časových pásem zobrazený jako symboly.',
-            da: 'Se den aktuelle GlyphClock \u2014 en universel, tidszonefri tid vist som symboler.',
-            nl: 'Bekijk de huidige GlyphClock \u2014 een universele, tijdzonevrije tijd weergegeven als symbolen.',
-            et: 'Vaata praegust GlyphClock\'i \u2014 universaalne, ajavöönditeta aeg sümbolitena.',
-            fi: 'Katso nykyinen GlyphClock \u2014 universaali, aikavyöhykkeetön aika symboleina.',
-            fr: 'Voyez le GlyphClock actuel \u2014 un temps universel sans fuseaux horaires affiché sous forme de symboles.',
-            de: 'Sieh die aktuelle GlyphClock \u2014 eine universelle, zeitzonenfreie Zeit als Symbole dargestellt.',
-            el: 'Δείτε το τρέχον GlyphClock \u2014 ένας παγκόσμιος χρόνος χωρίς ζώνες ώρας με σύμβολα.',
-            hu: 'Nézd meg az aktuális GlyphClock-ot \u2014 egy univerzális, időzóna-mentes idő szimbólumokkal.',
-            ga: 'Féach ar an GlyphClock reatha \u2014 am uilíoch gan chriosanna ama le siombailí.',
-            it: 'Guarda il GlyphClock attuale \u2014 un tempo universale senza fusi orari mostrato come simboli.',
-            lv: 'Skatiet pašreizējo GlyphClock \u2014 universālu laiku bez laika joslām, attēlotu kā simbolus.',
-            lt: 'Žiūrėkite dabartinį GlyphClock \u2014 universalų laiką be laiko juostų, rodomą simboliais.',
-            mt: 'Ara l-GlyphClock attwali \u2014 ħin universali mingħajr żoni tal-ħin muri bħala simboli.',
-            pl: 'Zobacz aktualny GlyphClock \u2014 uniwersalny czas bez stref czasowych pokazany jako symbole.',
-            pt: 'Veja o GlyphClock atual \u2014 um tempo universal sem fusos horários mostrado como símbolos.',
-            ro: 'Vezi GlyphClock-ul curent \u2014 un timp universal, fără fusuri orare, afișat ca simboluri.',
-            sk: 'Pozrite si aktuálny GlyphClock \u2014 univerzálny čas bez časových pásiem zobrazený ako symboly.',
-            sl: 'Oglejte si trenutni GlyphClock \u2014 univerzalni čas brez časovnih pasov, prikazan kot simboli.',
-            es: 'Ve el GlyphClock actual \u2014 un tiempo universal sin zonas horarias mostrado como símbolos.',
-            sv: 'Se den aktuella GlyphClock \u2014 en universell, tidszonsfri tid visad som symboler.'
-        }
     };
 
     function detect() {
@@ -238,7 +170,6 @@
     }
 
     function createSwitcher(lang) {
-        if (document.body.getAttribute('data-page') === 'glyphclock') return;
         var toolbar = document.querySelector('.nav-actions');
         if (!toolbar) return;
 

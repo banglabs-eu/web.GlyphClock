@@ -104,24 +104,9 @@ h2 {
 body {
   background-color: whitesmoke;
   color: #222;
-  transition: background-color 0.3s, color 0.3s, opacity 0.3s ease;
+  transition: background-color 0.3s, color 0.3s;
   animation: fadeIn 0.3s ease;
   margin: 0;
-}
-
-body.clock-page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.clock-center {
-  text-align: center;
-}
-
-body.navigating {
-  opacity: 0;
 }
 
 a {
@@ -134,30 +119,16 @@ a {
   color: #e0e0e0;
 }
 
-/* Clock layer (behind content, revealed on fade) */
-.clock-layer {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 0;
+.content-layer {
+  min-height: 100vh;
 }
 
-.content-layer {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  background: whitesmoke;
+/* Fade non-clock elements when clock-only */
+.about > *:not(.about-clock) {
   transition: opacity 0.8s ease;
 }
 
-.dark .content-layer {
-  background: #1a1a2e;
-}
-
-body.clock-only .content-layer {
+body.clock-only .about > *:not(.about-clock) {
   opacity: 0;
   pointer-events: none;
 }
@@ -187,10 +158,6 @@ body.clock-only .content-layer {
   pointer-events: none;
 }
 
-#glyphTimeline {
-  transition: opacity 0.5s ease;
-}
-
 .nav-inner {
   display: flex;
   align-items: center;
@@ -212,40 +179,6 @@ body.clock-only .content-layer {
 }
 
 .dark .nav-logo {
-  color: #e0e0e0;
-}
-
-.nav-links {
-  display: flex;
-  gap: 28px;
-}
-
-.nav-links a {
-  color: #777;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: #222;
-}
-
-.nav-links a.nav-active {
-  color: #222;
-  font-weight: 600;
-}
-
-.dark .nav-links a {
-  color: #7a8ba0;
-}
-
-.dark .nav-links a:hover {
-  color: #e0e0e0;
-}
-
-.dark .nav-links a.nav-active {
   color: #e0e0e0;
 }
 
@@ -420,6 +353,10 @@ body.clock-only .content-layer {
   border-color: currentColor;
 }
 
+.about-clock {
+  margin: 2.5rem 0;
+}
+
 .about-glyphs {
   display: flex;
   flex-wrap: wrap;
@@ -430,27 +367,6 @@ body.clock-only .content-layer {
   font-size: 2rem;
   border-top: 1px solid rgba(150, 150, 150, 0.2);
   border-bottom: 1px solid rgba(150, 150, 150, 0.2);
-}
-
-.about-phases {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 2rem;
-  margin: 2.5rem 0;
-  padding: 1.5rem 0;
-  font-size: 2rem;
-  border-top: 1px solid rgba(150, 150, 150, 0.2);
-  border-bottom: 1px solid rgba(150, 150, 150, 0.2);
-}
-
-.about-phase {
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.about-phase:last-child {
-  opacity: 1;
 }
 
 .about-creator {
@@ -492,9 +408,6 @@ body.clock-only .content-layer {
 }
 
 @media (max-width: 480px) {
-  .nav-links { display: none; }
-  .nav-inner { gap: 12px; }
   .about { margin-top: 64px; }
   .about h1 { font-size: 1.6rem; }
-  .about-phases { gap: 1rem; font-size: 1.5rem; }
 }
