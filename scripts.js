@@ -113,51 +113,83 @@
 
     function applyDarkMode(isDark) {
         document.documentElement.classList.toggle('dark', isDark);
-        var btn = document.querySelector('.dark-toggle');
-        if (btn) btn.textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19';
     }
 
-    // Toolbar
-
-    var toolbarLeft = document.createElement('div');
-    toolbarLeft.className = 'toolbar-left';
-    document.body.appendChild(toolbarLeft);
-
-    var bangLink = document.createElement('a');
-    bangLink.href = 'https://bang-labs.eu';
-    bangLink.className = 'toolbar-btn bang-labs';
-    bangLink.target = '_blank';
-    bangLink.rel = 'noopener';
-    bangLink.textContent = 'Bang Labs';
-    toolbarLeft.appendChild(bangLink);
+    // Navigation
 
     var page = document.body.getAttribute('data-page');
 
-    var toolbar = document.createElement('div');
-    toolbar.className = 'toolbar';
-    document.body.appendChild(toolbar);
+    var nav = document.createElement('nav');
+    nav.className = 'nav';
+    nav.id = 'nav';
 
-    if (page && page !== 'index') {
-        var homeLink = document.createElement('a');
-        homeLink.href = 'index.html';
-        homeLink.className = 'toolbar-btn';
-        homeLink.setAttribute('aria-label', 'Home');
-        homeLink.textContent = '\uD83C\uDFE0';
-        toolbar.appendChild(homeLink);
-    }
+    var navInner = document.createElement('div');
+    navInner.className = 'nav-inner';
+
+    // Breadcrumb
+    var breadcrumb = document.createElement('div');
+    breadcrumb.className = 'nav-breadcrumb';
+
+    var bangLink = document.createElement('a');
+    bangLink.href = 'https://bang-labs.eu';
+    bangLink.className = 'nav-banglabs';
+    bangLink.target = '_blank';
+    bangLink.rel = 'noopener';
+    bangLink.textContent = 'Bang Labs';
+
+    var sep = document.createElement('span');
+    sep.className = 'breadcrumb-sep';
+    sep.textContent = '/';
+
+    var logoLink = document.createElement('a');
+    logoLink.href = 'index.html';
+    logoLink.className = 'nav-logo';
+    logoLink.textContent = 'GlyphClock';
+
+    breadcrumb.appendChild(bangLink);
+    breadcrumb.appendChild(sep);
+    breadcrumb.appendChild(logoLink);
+
+    // Nav links
+    var navLinks = document.createElement('div');
+    navLinks.className = 'nav-links';
+
+    var aboutLink = document.createElement('a');
+    aboutLink.href = 'about.html';
+    aboutLink.textContent = 'About';
+    if (page === 'about') aboutLink.className = 'nav-active';
+    navLinks.appendChild(aboutLink);
+
+    var clockLink = document.createElement('a');
+    clockLink.href = 'glyphclock.html';
+    clockLink.textContent = '\uD83D\uDD70\uFE0F';
+    if (page === 'glyphclock') clockLink.className = 'nav-active';
+    navLinks.appendChild(clockLink);
+
+    // Nav actions
+    var navActions = document.createElement('div');
+    navActions.className = 'nav-actions';
 
     var darkBtn = document.createElement('button');
-    darkBtn.className = 'toolbar-btn dark-toggle';
+    darkBtn.className = 'theme-toggle';
     darkBtn.setAttribute('aria-label', 'Toggle dark mode');
+    darkBtn.innerHTML = '<svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>' +
+        '<svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
     var isDark = darkModeBool();
     applyDarkMode(isDark);
-    darkBtn.textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19';
     darkBtn.addEventListener('click', function () {
         var nowDark = !document.documentElement.classList.contains('dark');
         applyDarkMode(nowDark);
         try { localStorage.setItem('darkMode', nowDark); } catch (e) {}
     });
-    toolbar.appendChild(darkBtn);
+    navActions.appendChild(darkBtn);
+
+    navInner.appendChild(breadcrumb);
+    navInner.appendChild(navLinks);
+    navInner.appendChild(navActions);
+    nav.appendChild(navInner);
+    document.body.appendChild(nav);
 
     // Cross-project theme carry-over
     var SIBLING_DOMAINS = ['snippets.eu','cli.snippets.eu','web.snippets.eu','glyphclock.bang-labs.eu'];
@@ -174,25 +206,23 @@
         } catch (err) {}
     });
 
-    // Auto-hide toolbars and timeline after 7s of inactivity
+    // Auto-hide nav and timeline after 7s of inactivity
     var hideTimer;
     var timeline = document.getElementById('glyphTimeline');
-    function hideToolbars() {
-        toolbarLeft.classList.add('toolbar-hidden');
-        toolbar.classList.add('toolbar-hidden');
-        if (timeline) timeline.classList.add('toolbar-hidden');
+    function hideNav() {
+        nav.classList.add('nav-hidden');
+        if (timeline) timeline.classList.add('nav-hidden');
     }
-    function showToolbars() {
-        toolbarLeft.classList.remove('toolbar-hidden');
-        toolbar.classList.remove('toolbar-hidden');
-        if (timeline) timeline.classList.remove('toolbar-hidden');
+    function showNav() {
+        nav.classList.remove('nav-hidden');
+        if (timeline) timeline.classList.remove('nav-hidden');
         clearTimeout(hideTimer);
-        hideTimer = setTimeout(hideToolbars, 7000);
+        hideTimer = setTimeout(hideNav, 7000);
     }
-    hideTimer = setTimeout(hideToolbars, 7000);
-    document.addEventListener('mousemove', showToolbars);
-    document.addEventListener('touchstart', showToolbars);
-    document.addEventListener('scroll', showToolbars);
+    hideTimer = setTimeout(hideNav, 7000);
+    document.addEventListener('mousemove', showNav);
+    document.addEventListener('touchstart', showNav);
+    document.addEventListener('scroll', showNav);
 
     // Page transitions
     document.addEventListener('click', function (e) {

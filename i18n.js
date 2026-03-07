@@ -43,30 +43,30 @@
             sv: 'Om GlyphClock'
         },
         'index.intro': {
-            en: 'The start of <a href="about.html">GlyphClock</a>.',
-            bg: 'Началото на <a href="about.html">GlyphClock</a>.',
-            hr: 'Početak <a href="about.html">GlyphClock</a>.',
-            cs: 'Začátek <a href="about.html">GlyphClock</a>.',
-            da: 'Starten på <a href="about.html">GlyphClock</a>.',
-            nl: 'Het begin van <a href="about.html">GlyphClock</a>.',
-            et: '<a href="about.html">GlyphClock</a>\u2019i algus.',
-            fi: '<a href="about.html">GlyphClock</a>n alku.',
-            fr: 'Le début de <a href="about.html">GlyphClock</a>.',
-            de: 'Der Anfang von <a href="about.html">GlyphClock</a>.',
-            el: 'Η αρχή του <a href="about.html">GlyphClock</a>.',
-            hu: 'A <a href="about.html">GlyphClock</a> kezdete.',
-            ga: 'Tús <a href="about.html">GlyphClock</a>.',
-            it: 'L\'inizio di <a href="about.html">GlyphClock</a>.',
-            lv: '<a href="about.html">GlyphClock</a> sākums.',
-            lt: '<a href="about.html">GlyphClock</a> pradžia.',
-            mt: 'Il-bidu ta\' <a href="about.html">GlyphClock</a>.',
-            pl: 'Początek <a href="about.html">GlyphClock</a>.',
-            pt: 'O início do <a href="about.html">GlyphClock</a>.',
-            ro: 'Începutul <a href="about.html">GlyphClock</a>.',
-            sk: 'Začiatok <a href="about.html">GlyphClock</a>.',
-            sl: 'Začetek <a href="about.html">GlyphClock</a>.',
-            es: 'El comienzo de <a href="about.html">GlyphClock</a>.',
-            sv: 'Början av <a href="about.html">GlyphClock</a>.'
+            en: 'About <a href="about.html">GlyphClock</a>.',
+            bg: 'Относно <a href="about.html">GlyphClock</a>.',
+            hr: 'O <a href="about.html">GlyphClock</a>.',
+            cs: 'O <a href="about.html">GlyphClock</a>.',
+            da: 'Om <a href="about.html">GlyphClock</a>.',
+            nl: 'Over <a href="about.html">GlyphClock</a>.',
+            et: '<a href="about.html">GlyphClock</a>\u2019i kohta.',
+            fi: 'Tietoa <a href="about.html">GlyphClock</a>ista.',
+            fr: 'À propos de <a href="about.html">GlyphClock</a>.',
+            de: 'Über <a href="about.html">GlyphClock</a>.',
+            el: 'Σχετικά με το <a href="about.html">GlyphClock</a>.',
+            hu: 'A <a href="about.html">GlyphClock</a>ról.',
+            ga: 'Faoi <a href="about.html">GlyphClock</a>.',
+            it: 'Informazioni su <a href="about.html">GlyphClock</a>.',
+            lv: 'Par <a href="about.html">GlyphClock</a>.',
+            lt: 'Apie <a href="about.html">GlyphClock</a>.',
+            mt: 'Dwar <a href="about.html">GlyphClock</a>.',
+            pl: 'O <a href="about.html">GlyphClock</a>.',
+            pt: 'Sobre o <a href="about.html">GlyphClock</a>.',
+            ro: 'Despre <a href="about.html">GlyphClock</a>.',
+            sk: 'O <a href="about.html">GlyphClock</a>.',
+            sl: 'O <a href="about.html">GlyphClock</a>.',
+            es: 'Acerca de <a href="about.html">GlyphClock</a>.',
+            sv: 'Om <a href="about.html">GlyphClock</a>.'
         },
         'about.p1': {
             en: 'We all live in and share the same time. The clock is always ticking, GlyphClock was made with the intent to separate us from the constant count.',
@@ -291,14 +291,14 @@
 
     function createSwitcher(lang) {
         if (document.body.getAttribute('data-page') === 'glyphclock') return;
-        var toolbar = document.querySelector('.toolbar');
+        var toolbar = document.querySelector('.nav-actions');
         if (!toolbar) return;
 
         var div = document.createElement('div');
         div.className = 'lang-switcher';
 
         var btn = document.createElement('button');
-        btn.className = 'toolbar-btn';
+        btn.className = 'nav-btn';
         btn.textContent = lang.toUpperCase();
         btn.setAttribute('aria-label', 'Change language');
 
