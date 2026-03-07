@@ -126,39 +126,15 @@
     var navInner = document.createElement('div');
     navInner.className = 'nav-inner';
 
-    // Breadcrumb
-    var breadcrumb = document.createElement('div');
-    breadcrumb.className = 'nav-breadcrumb';
-
-    var bangLink = document.createElement('a');
-    bangLink.href = 'https://bang-labs.eu';
-    bangLink.className = 'nav-banglabs';
-    bangLink.target = '_blank';
-    bangLink.rel = 'noopener';
-    bangLink.textContent = 'Bang Labs';
-
-    var sep = document.createElement('span');
-    sep.className = 'breadcrumb-sep';
-    sep.textContent = '/';
-
+    // Brand
     var logoLink = document.createElement('a');
     logoLink.href = 'index.html';
     logoLink.className = 'nav-logo';
     logoLink.textContent = 'GlyphClock';
 
-    breadcrumb.appendChild(bangLink);
-    breadcrumb.appendChild(sep);
-    breadcrumb.appendChild(logoLink);
-
     // Nav links
     var navLinks = document.createElement('div');
     navLinks.className = 'nav-links';
-
-    var aboutLink = document.createElement('a');
-    aboutLink.href = 'about.html';
-    aboutLink.textContent = 'About';
-    if (page === 'about') aboutLink.className = 'nav-active';
-    navLinks.appendChild(aboutLink);
 
     var clockLink = document.createElement('a');
     clockLink.href = 'glyphclock.html';
@@ -185,7 +161,7 @@
     });
     navActions.appendChild(darkBtn);
 
-    navInner.appendChild(breadcrumb);
+    navInner.appendChild(logoLink);
     navInner.appendChild(navLinks);
     navInner.appendChild(navActions);
     nav.appendChild(navInner);
@@ -214,6 +190,7 @@
         if (timeline) timeline.classList.add('nav-hidden');
     }
     function showNav() {
+        if (document.body.classList.contains('clock-only')) return;
         nav.classList.remove('nav-hidden');
         if (timeline) timeline.classList.remove('nav-hidden');
         clearTimeout(hideTimer);
@@ -223,6 +200,14 @@
     document.addEventListener('mousemove', showNav);
     document.addEventListener('touchstart', showNav);
     document.addEventListener('scroll', showNav);
+
+    // Fade to clock-only after 11 seconds
+    if (document.querySelector('.content-layer')) {
+        setTimeout(function () {
+            document.body.classList.add('clock-only');
+            hideNav();
+        }, 11000);
+    }
 
     // Page transitions
     document.addEventListener('click', function (e) {

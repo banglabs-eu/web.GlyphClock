@@ -11,22 +11,34 @@
   <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');if(p==='light'||p==='dark'){localStorage.setItem('darkMode',p==='dark');if(p==='dark')document.documentElement.classList.add('dark');return}var d=localStorage.getItem('darkMode');if(d==='true'||(d===null&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()</script>
 </head>
 <body data-page="about">
-  <div class="about">
-    <h1 data-i18n="title.about">About GlyphClock</h1>
-
-    <p class="about-text" data-i18n="about.desc">GlyphClock is a timezone and language free time system. The 24-hour day is divided into 16 blocks of 90 minutes, each block with a unique emoji. Each 90 minute period has 3 sub-periods of 30 minutes, shown by displaying one, two, or three copies of the glyph.</p>
-
-    <div class="about-glyphs" aria-hidden="true">
-      <span>🥐</span><span>🦋</span><span>🌷</span><span>☂️</span><span>🌵</span><span>🎈</span><span>👓</span><span>⚓</span><span>🦚</span><span>🤖</span><span>⭐</span><span>☁️</span><span>🌲</span><span>🪁</span><span>🪑</span><span>♻</span>
+  <div class="clock-layer">
+    <h2 id="currentTime"></h2>
+    <div id="testControls" class="test-controls" style="display:none">
+      <button id="testPrev" class="test-btn">◀</button>
+      <span id="testInfo"></span>
+      <button id="testNext" class="test-btn">▶</button>
     </div>
+    <p id="glyphTimeline" style="font-size: 40px; text-align: center">🥐➳🦋➳🌷➳☂️➳🌵➳🎈➳👓➳⚓➳🦚➳<span id="testModeToggle" style="cursor:pointer" title="Test mode">🤖</span>➳⭐➳☁️➳🌲➳🪁➳🪑➳♻➳</p>
+  </div>
 
-    <div class="about-phases" aria-hidden="true">
-      <span class="about-phase">🦋</span>
-      <span class="about-phase">🦋🦋</span>
-      <span class="about-phase">🦋🦋🦋</span>
+  <div class="content-layer">
+    <div class="about">
+      <h1 data-i18n="title.about">About GlyphClock</h1>
+
+      <p class="about-text" data-i18n="about.desc">GlyphClock is a timezone and language free time system. The 24-hour day is divided into 16 blocks of 90 minutes, each block with a unique emoji. Each 90 minute period has 3 sub-periods of 30 minutes, shown by displaying one, two, or three copies of the glyph.</p>
+
+      <div class="about-glyphs" aria-hidden="true">
+        <span>🥐</span><span>🦋</span><span>🌷</span><span>☂️</span><span>🌵</span><span>🎈</span><span>👓</span><span>⚓</span><span>🦚</span><span>🤖</span><span>⭐</span><span>☁️</span><span>🌲</span><span>🪁</span><span>🪑</span><span>♻</span>
+      </div>
+
+      <div class="about-phases" aria-hidden="true">
+        <span class="about-phase">🦋</span>
+        <span class="about-phase">🦋🦋</span>
+        <span class="about-phase">🦋🦋🦋</span>
+      </div>
+
+      <p class="about-creator" data-i18n="about.creator">Created by <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.</p>
     </div>
-
-    <p class="about-creator" data-i18n="about.creator">Created by <a href="https://bang-labs.eu">Bang Labs</a>.</p>
   </div>
   <script src="scripts.js"></script>
   <script src="i18n.js"></script>

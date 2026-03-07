@@ -134,6 +134,34 @@ a {
   color: #e0e0e0;
 }
 
+/* Clock layer (behind content, revealed on fade) */
+.clock-layer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.content-layer {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: whitesmoke;
+  transition: opacity 0.8s ease;
+}
+
+.dark .content-layer {
+  background: #1a1a2e;
+}
+
+body.clock-only .content-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Navigation */
 .nav {
   position: fixed;
@@ -141,8 +169,17 @@ a {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 16px 24px;
-  transition: opacity 0.5s ease, background 0.3s, backdrop-filter 0.3s;
+  padding: 0 24px;
+  background: rgba(245, 245, 245, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: opacity 0.5s ease, background 0.3s;
+}
+
+.dark .nav {
+  background: rgba(26, 26, 46, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 .nav-hidden {
@@ -160,47 +197,15 @@ a {
   justify-content: space-between;
   max-width: 1120px;
   margin: 0 auto;
+  height: 56px;
   gap: 32px;
-}
-
-.nav-breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav-banglabs {
-  font-size: 16px;
-  font-weight: 700;
-  font-family: monospace;
-  background: linear-gradient(135deg, #c7d2fe, #6366f1, #06b6d4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.nav-banglabs:hover {
-  opacity: 0.8;
-}
-
-.breadcrumb-sep {
-  color: #999;
-  font-size: 18px;
-  font-weight: 300;
-  opacity: 0.5;
-  user-select: none;
-}
-
-.dark .breadcrumb-sep {
-  color: #666;
 }
 
 .nav-logo {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
+  letter-spacing: -0.3px;
   color: #222;
   text-decoration: none;
   transition: color 0.2s;
@@ -464,6 +469,22 @@ a {
 
 .about-creator a:hover {
   border-color: currentColor;
+}
+
+.banglabs-brand {
+  font-family: monospace;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #c7d2fe, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: none;
+}
+
+.banglabs-brand:hover {
+  border-bottom: none;
+  opacity: 0.8;
 }
 
 .dark .about-creator {
