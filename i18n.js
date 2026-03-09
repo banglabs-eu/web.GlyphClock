@@ -9,7 +9,8 @@
         ['ga', 'Gaeilge'], ['it', 'Italiano'], ['lv', 'Latviešu'],
         ['lt', 'Lietuvių'], ['mt', 'Malti'], ['pl', 'Polski'],
         ['pt', 'Português'], ['ro', 'Română'], ['sk', 'Slovenčina'],
-        ['sl', 'Slovenščina'], ['es', 'Español'], ['sv', 'Svenska']
+        ['sl', 'Slovenščina'], ['es', 'Español'], ['sv', 'Svenska'],
+        ['ja', '日本語']
     ];
 
     var VALID = {};
@@ -24,7 +25,8 @@
             ga: 'GlyphClock', it: 'GlyphClock', lv: 'GlyphClock',
             lt: 'GlyphClock', mt: 'GlyphClock', pl: 'GlyphClock',
             pt: 'GlyphClock', ro: 'GlyphClock', sk: 'GlyphClock',
-            sl: 'GlyphClock', es: 'GlyphClock', sv: 'GlyphClock'
+            sl: 'GlyphClock', es: 'GlyphClock', sv: 'GlyphClock',
+            ja: 'GlyphClock'
         },
         'title.about': {
             en: 'About GlyphClock',
@@ -50,7 +52,8 @@
             sk: 'O GlyphClock',
             sl: 'O GlyphClock',
             es: 'Acerca de GlyphClock',
-            sv: 'Om GlyphClock'
+            sv: 'Om GlyphClock',
+            ja: 'GlyphClockについて'
         },
         'about.desc': {
             en: 'GlyphClock is a timezone and language free time system. The 24-hour day is divided into 16 blocks of 90 minutes, each block with a unique emoji. Each 90 minute period has 3 sub-periods of 30 minutes, shown by displaying one, two, or three copies of the glyph. You can set a current focus task that stays visible beneath the clock when the page fades to clock-only mode.',
@@ -76,7 +79,8 @@
             sk: 'GlyphClock je časový systém bez časových pásiem a jazyka. 24-hodinový deň je rozdelený na 16 blokov po 90 minútach, každý blok s jedinečným emoji. Každé 90-minútové obdobie má 3 podobdobia po 30 minútach, zobrazené jednou, dvoma alebo tromi kópiami symbolu. Môžete nastaviť aktuálnu úlohu zamerania, ktorá zostane viditeľná pod hodinami, keď stránka prejde do režimu iba s hodinami.',
             sl: 'GlyphClock je časovni sistem, osvobojen časovnih pasov in jezika. 24-urni dan je razdeljen na 16 blokov po 90 minut, vsak blok z edinstvenim emojijem. Vsako 90-minutno obdobje ima 3 podobdobja po 30 minut, prikazana z eno, dvema ali tremi kopijami simbola. Nastavite lahko trenutno nalogo osredotočenja, ki ostane vidna pod uro, ko stran preide v način samo z uro.',
             es: 'GlyphClock es un sistema de tiempo libre de zonas horarias e idioma. El día de 24 horas se divide en 16 bloques de 90 minutos, cada bloque con un emoji único. Cada período de 90 minutos tiene 3 subperíodos de 30 minutos, mostrados con una, dos o tres copias del glifo. Puedes establecer una tarea de enfoque actual que permanece visible debajo del reloj cuando la página cambia al modo solo reloj.',
-            sv: 'GlyphClock är ett tidssystem fritt från tidszoner och språk. Dygnet är uppdelat i 16 block om 90 minuter, varje block med en unik emoji. Varje 90-minutersperiod har 3 underperioder om 30 minuter, visade genom att visa en, två eller tre kopior av symbolen. Du kan ställa in en aktuell fokusuppgift som förblir synlig under klockan när sidan växlar till enbart klockläge.'
+            sv: 'GlyphClock är ett tidssystem fritt från tidszoner och språk. Dygnet är uppdelat i 16 block om 90 minuter, varje block med en unik emoji. Varje 90-minutersperiod har 3 underperioder om 30 minuter, visade genom att visa en, två eller tre kopior av symbolen. Du kan ställa in en aktuell fokusuppgift som förblir synlig under klockan när sidan växlar till enbart klockläge.',
+            ja: 'GlyphClockはタイムゾーンや言語に依存しない時刻システムです。24時間の1日を90分ずつ16のブロックに分割し、各ブロックにユニークな絵文字を割り当てています。各90分の期間は30分ずつ3つのサブ期間に分かれ、グリフを1つ、2つ、または3つ表示することで示されます。ページが時計のみモードに切り替わったときに時計の下に表示され続ける、現在のフォーカスタスクを設定できます。'
         },
         'about.creator': {
             en: 'Created by <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
@@ -102,7 +106,8 @@
             sk: 'Vytvoril <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
             sl: 'Ustvaril <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
             es: 'Creado por <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
-            sv: 'Skapat av <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.'
+            sv: 'Skapat av <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
+            ja: '<a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a> が作成しました。'
         },
         'focus.add': {
             en: '+ add current focus', bg: '+ добави текущ фокус', hr: '+ dodaj trenutni fokus',
@@ -112,7 +117,8 @@
             ga: '+ cuir fócas reatha leis', it: '+ aggiungi focus attuale', lv: '+ pievienot pašreizējo fokusu',
             lt: '+ pridėti dabartinį fokusą', mt: '+ żid il-fokus attwali', pl: '+ dodaj bieżące skupienie',
             pt: '+ adicionar foco atual', ro: '+ adaugă focalizarea curentă', sk: '+ pridať aktuálne zameranie',
-            sl: '+ dodaj trenutno osredotočenje', es: '+ añadir enfoque actual', sv: '+ lägg till nuvarande fokus'
+            sl: '+ dodaj trenutno osredotočenje', es: '+ añadir enfoque actual', sv: '+ lägg till nuvarande fokus',
+            ja: '+ 現在のフォーカスを追加'
         },
         'focus.placeholder': {
             en: 'What are you focusing on?', bg: 'Върху какво се фокусирате?', hr: 'Na što se fokusirate?',
@@ -122,7 +128,8 @@
             ga: 'Cad air a bhfuil tú ag díriú?', it: 'Su cosa ti stai concentrando?', lv: 'Uz ko jūs koncentrējaties?',
             lt: 'Į ką sutelkiate dėmesį?', mt: 'Fuq xiex qed tiffoka?', pl: 'Na czym się skupiasz?',
             pt: 'No que está focado?', ro: 'Pe ce vă concentrați?', sk: 'Na čo sa zameriavate?',
-            sl: 'Na kaj se osredotočate?', es: '¿En qué te enfocas?', sv: 'Vad fokuserar du på?'
+            sl: 'Na kaj se osredotočate?', es: '¿En qué te enfocas?', sv: 'Vad fokuserar du på?',
+            ja: '何に集中していますか？'
         },
         'meta.description.index': {
             en: 'A timezone-free time system dividing the day into 16 symbolic blocks.',
@@ -148,7 +155,8 @@
             sk: 'Systém času bez časových pásiem rozdeľujúci deň na 16 symbolických blokov.',
             sl: 'Časovni sistem brez časovnih pasov, ki deli dan na 16 simbolnih blokov.',
             es: 'Un sistema de tiempo sin zonas horarias que divide el día en 16 bloques simbólicos.',
-            sv: 'Ett tidszonsfritt tidssystem som delar upp dygnet i 16 symboliska block.'
+            sv: 'Ett tidszonsfritt tidssystem som delar upp dygnet i 16 symboliska block.',
+            ja: 'タイムゾーンに依存しない、1日を16のシンボルブロックに分割する時刻システム。'
         },
         'title.privacy': {
             en: 'Privacy Policy — GlyphClock',
@@ -174,7 +182,8 @@
             sk: 'Zásady ochrany osobných údajov — GlyphClock',
             sl: 'Pravilnik o zasebnosti — GlyphClock',
             es: 'Política de privacidad — GlyphClock',
-            sv: 'Integritetspolicy — GlyphClock'
+            sv: 'Integritetspolicy — GlyphClock',
+            ja: 'プライバシーポリシー — GlyphClock'
         },
         'meta.description.privacy': {
             en: 'Privacy policy for the GlyphClock Apple Watch widget and web app.',
@@ -200,7 +209,8 @@
             sk: 'Zásady ochrany osobných údajov pre widget GlyphClock pre Apple Watch a webovú aplikáciu.',
             sl: 'Pravilnik o zasebnosti za pripomoček Apple Watch in spletno aplikacijo GlyphClock.',
             es: 'Política de privacidad para el widget de Apple Watch y la aplicación web GlyphClock.',
-            sv: 'Integritetspolicy för GlyphClock Apple Watch-widget och webbapp.'
+            sv: 'Integritetspolicy för GlyphClock Apple Watch-widget och webbapp.',
+            ja: 'GlyphClock Apple Watchウィジェットおよびウェブアプリのプライバシーポリシー。'
         },
         'privacy.title': {
             en: 'Privacy Policy',
@@ -226,7 +236,8 @@
             sk: 'Zásady ochrany osobných údajov',
             sl: 'Pravilnik o zasebnosti',
             es: 'Política de privacidad',
-            sv: 'Integritetspolicy'
+            sv: 'Integritetspolicy',
+            ja: 'プライバシーポリシー'
         },
         'privacy.updated': {
             en: 'Last updated: 9 March 2026',
@@ -252,7 +263,8 @@
             sk: 'Posledná aktualizácia: 9. marca 2026',
             sl: 'Nazadnje posodobljeno: 9. marec 2026',
             es: 'Última actualización: 9 de marzo de 2026',
-            sv: 'Senast uppdaterad: 9 mars 2026'
+            sv: 'Senast uppdaterad: 9 mars 2026',
+            ja: '最終更新日: 2026年3月9日'
         },
         'privacy.overview.heading': {
             en: 'Overview',
@@ -278,7 +290,8 @@
             sk: 'Prehľad',
             sl: 'Pregled',
             es: 'Descripción general',
-            sv: 'Översikt'
+            sv: 'Översikt',
+            ja: '概要'
         },
         'privacy.overview.text': {
             en: 'GlyphClock is built with privacy as a core principle. The GlyphClock Apple Watch widget and web app do not collect, store, or transmit any personal data.',
@@ -304,7 +317,8 @@
             sk: 'GlyphClock je vytvorený s ochranou súkromia ako základným princípom. Widget GlyphClock pre Apple Watch a webová aplikácia nezhromažďujú, neukladajú ani neprenášajú žiadne osobné údaje.',
             sl: 'GlyphClock je zgrajen z zasebnostjo kot temeljnim načelom. Pripomoček GlyphClock za Apple Watch in spletna aplikacija ne zbirata, shranjujeta ali prenašata nobenih osebnih podatkov.',
             es: 'GlyphClock está construido con la privacidad como principio fundamental. El widget de Apple Watch y la aplicación web GlyphClock no recopilan, almacenan ni transmiten datos personales.',
-            sv: 'GlyphClock är byggt med integritet som en grundprincip. GlyphClock Apple Watch-widgeten och webbappen samlar inte in, lagrar eller överför några personuppgifter.'
+            sv: 'GlyphClock är byggt med integritet som en grundprincip. GlyphClock Apple Watch-widgeten och webbappen samlar inte in, lagrar eller överför några personuppgifter.',
+            ja: 'GlyphClockはプライバシーを基本原則として構築されています。GlyphClock Apple Watchウィジェットおよびウェブアプリは、個人データの収集、保存、送信を一切行いません。'
         },
         'privacy.collection.heading': {
             en: 'Data Collection',
@@ -330,7 +344,8 @@
             sk: 'Zhromažďovanie údajov',
             sl: 'Zbiranje podatkov',
             es: 'Recopilación de datos',
-            sv: 'Datainsamling'
+            sv: 'Datainsamling',
+            ja: 'データ収集'
         },
         'privacy.collection.text': {
             en: 'GlyphClock does not collect any personal information. The app reads the current UTC time from your device to calculate which glyph block to display. This time data is used locally and is never sent to any server.',
@@ -356,7 +371,8 @@
             sk: 'GlyphClock nezhromažďuje žiadne osobné údaje. Aplikácia číta aktuálny čas UTC z vášho zariadenia na výpočet zobrazeného bloku glyfov. Tieto časové údaje sa používajú lokálne a nikdy sa neodosielajú na žiadny server.',
             sl: 'GlyphClock ne zbira osebnih podatkov. Aplikacija bere trenutni UTC čas iz vaše naprave, da izračuna, kateri blok glifov prikazati. Ti časovni podatki se uporabljajo lokalno in se nikoli ne pošiljajo na noben strežnik.',
             es: 'GlyphClock no recopila información personal. La aplicación lee la hora UTC actual de tu dispositivo para calcular qué bloque de glifos mostrar. Estos datos temporales se usan localmente y nunca se envían a ningún servidor.',
-            sv: 'GlyphClock samlar inte in personlig information. Appen läser aktuell UTC-tid från din enhet för att beräkna vilket glyfblock som ska visas. Dessa tidsdata används lokalt och skickas aldrig till någon server.'
+            sv: 'GlyphClock samlar inte in personlig information. Appen läser aktuell UTC-tid från din enhet för att beräkna vilket glyfblock som ska visas. Dessa tidsdata används lokalt och skickas aldrig till någon server.',
+            ja: 'GlyphClockは個人情報を一切収集しません。アプリはデバイスから現在のUTC時刻を読み取り、表示するグリフブロックを計算します。この時刻データはローカルで使用され、サーバーに送信されることはありません。'
         },
         'privacy.analytics.heading': {
             en: 'Analytics & Tracking',
@@ -382,7 +398,8 @@
             sk: 'Analytika a sledovanie',
             sl: 'Analitika in sledenje',
             es: 'Análisis y seguimiento',
-            sv: 'Analys och spårning'
+            sv: 'Analys och spårning',
+            ja: '分析とトラッキング'
         },
         'privacy.analytics.text': {
             en: 'GlyphClock does not use analytics, tracking, cookies, or any third-party services. There are no ads.',
@@ -408,7 +425,8 @@
             sk: 'GlyphClock nepoužíva analytiku, sledovanie, cookies ani služby tretích strán. Nie sú tu žiadne reklamy.',
             sl: 'GlyphClock ne uporablja analitike, sledenja, piškotkov ali storitev tretjih oseb. Oglasov ni.',
             es: 'GlyphClock no utiliza análisis, seguimiento, cookies ni servicios de terceros. No hay anuncios.',
-            sv: 'GlyphClock använder inte analys, spårning, cookies eller tredjepartstjänster. Det finns inga annonser.'
+            sv: 'GlyphClock använder inte analys, spårning, cookies eller tredjepartstjänster. Det finns inga annonser.',
+            ja: 'GlyphClockは分析、トラッキング、Cookie、またはサードパーティサービスを使用しません。広告もありません。'
         },
         'privacy.network.heading': {
             en: 'Network Usage',
@@ -434,7 +452,8 @@
             sk: 'Využitie siete',
             sl: 'Uporaba omrežja',
             es: 'Uso de red',
-            sv: 'Nätverksanvändning'
+            sv: 'Nätverksanvändning',
+            ja: 'ネットワーク使用'
         },
         'privacy.network.text': {
             en: 'The Apple Watch widget operates entirely offline. It does not make any network requests.',
@@ -460,7 +479,8 @@
             sk: 'Widget pre Apple Watch funguje úplne offline. Nevykonáva žiadne sieťové požiadavky.',
             sl: 'Pripomoček Apple Watch deluje povsem brez povezave. Ne izvaja nobenih omrežnih zahtev.',
             es: 'El widget de Apple Watch funciona completamente sin conexión. No realiza solicitudes de red.',
-            sv: 'Apple Watch-widgeten fungerar helt offline. Den gör inga nätverksförfrågningar.'
+            sv: 'Apple Watch-widgeten fungerar helt offline. Den gör inga nätverksförfrågningar.',
+            ja: 'Apple Watchウィジェットは完全にオフラインで動作します。ネットワークリクエストは一切行いません。'
         },
         'privacy.storage.heading': {
             en: 'Data Storage',
@@ -486,7 +506,8 @@
             sk: 'Ukladanie údajov',
             sl: 'Shranjevanje podatkov',
             es: 'Almacenamiento de datos',
-            sv: 'Datalagring'
+            sv: 'Datalagring',
+            ja: 'データ保存'
         },
         'privacy.storage.text': {
             en: 'The web app stores your theme preference and language selection locally in your browser using localStorage. This data never leaves your device.',
@@ -512,7 +533,8 @@
             sk: 'Webová aplikácia ukladá vaše preferencie témy a výber jazyka lokálne v prehliadači pomocou localStorage. Tieto údaje nikdy neopustia vaše zariadenie.',
             sl: 'Spletna aplikacija shranjuje vašo nastavitev teme in izbiro jezika lokalno v brskalniku s pomočjo localStorage. Ti podatki nikoli ne zapustijo vaše naprave.',
             es: 'La aplicación web almacena tu preferencia de tema y selección de idioma localmente en tu navegador mediante localStorage. Estos datos nunca abandonan tu dispositivo.',
-            sv: 'Webbappen lagrar ditt temaval och språkval lokalt i din webbläsare via localStorage. Dessa data lämnar aldrig din enhet.'
+            sv: 'Webbappen lagrar ditt temaval och språkval lokalt i din webbläsare via localStorage. Dessa data lämnar aldrig din enhet.',
+            ja: 'ウェブアプリはテーマ設定と言語選択をlocalStorageを使用してブラウザにローカル保存します。このデータがデバイスから外部に送信されることはありません。'
         },
         'privacy.children.heading': {
             en: 'Children\u2019s Privacy',
@@ -538,7 +560,8 @@
             sk: 'Ochrana súkromia detí',
             sl: 'Zasebnost otrok',
             es: 'Privacidad de los niños',
-            sv: 'Barns integritet'
+            sv: 'Barns integritet',
+            ja: 'お子様のプライバシー'
         },
         'privacy.children.text': {
             en: 'GlyphClock does not collect any data from anyone, including children under 13.',
@@ -564,7 +587,8 @@
             sk: 'GlyphClock nezhromažďuje žiadne údaje od nikoho, vrátane detí mladších ako 13 rokov.',
             sl: 'GlyphClock ne zbira podatkov od nikogar, vključno z otroki, mlajšimi od 13 let.',
             es: 'GlyphClock no recopila datos de nadie, incluidos niños menores de 13 años.',
-            sv: 'GlyphClock samlar inte in data från någon, inklusive barn under 13 år.'
+            sv: 'GlyphClock samlar inte in data från någon, inklusive barn under 13 år.',
+            ja: 'GlyphClockは13歳未満のお子様を含め、誰からもデータを収集しません。'
         },
         'privacy.changes.heading': {
             en: 'Changes to This Policy',
@@ -590,7 +614,8 @@
             sk: 'Zmeny týchto zásad',
             sl: 'Spremembe tega pravilnika',
             es: 'Cambios en esta política',
-            sv: 'Ändringar av denna policy'
+            sv: 'Ändringar av denna policy',
+            ja: 'ポリシーの変更'
         },
         'privacy.changes.text': {
             en: 'If this policy changes, the updated version will be posted on this page with a revised date.',
@@ -616,7 +641,8 @@
             sk: 'Ak sa tieto zásady zmenia, aktualizovaná verzia bude zverejnená na tejto stránke s upraveným dátumom.',
             sl: 'Če se ta pravilnik spremeni, bo posodobljena različica objavljena na tej strani s spremenjenim datumom.',
             es: 'Si esta política cambia, la versión actualizada se publicará en esta página con una fecha revisada.',
-            sv: 'Om denna policy ändras kommer den uppdaterade versionen att publiceras på denna sida med ett reviderat datum.'
+            sv: 'Om denna policy ändras kommer den uppdaterade versionen att publiceras på denna sida med ett reviderat datum.',
+            ja: 'このポリシーが変更された場合、更新版が改訂日とともにこのページに掲載されます。'
         },
         'privacy.contact.heading': {
             en: 'Contact',
@@ -642,7 +668,8 @@
             sk: 'Kontakt',
             sl: 'Kontakt',
             es: 'Contacto',
-            sv: 'Kontakt'
+            sv: 'Kontakt',
+            ja: 'お問い合わせ'
         },
         'privacy.contact.text': {
             en: 'If you have questions about this privacy policy, please contact us at <a href="https://bang-labs.eu">bang-labs.eu</a>.',
@@ -668,7 +695,8 @@
             sk: 'Ak máte otázky k týmto zásadám ochrany osobných údajov, kontaktujte nás na <a href="https://bang-labs.eu">bang-labs.eu</a>.',
             sl: 'Če imate vprašanja o tem pravilniku o zasebnosti, nas kontaktirajte na <a href="https://bang-labs.eu">bang-labs.eu</a>.',
             es: 'Si tienes preguntas sobre esta política de privacidad, contáctanos en <a href="https://bang-labs.eu">bang-labs.eu</a>.',
-            sv: 'Om du har frågor om denna integritetspolicy, kontakta oss på <a href="https://bang-labs.eu">bang-labs.eu</a>.'
+            sv: 'Om du har frågor om denna integritetspolicy, kontakta oss på <a href="https://bang-labs.eu">bang-labs.eu</a>.',
+            ja: 'このプライバシーポリシーについてご質問がある場合は、<a href="https://bang-labs.eu">bang-labs.eu</a> までお問い合わせください。'
         },
         'privacy.footer': {
             en: '<a href="index.html">Back to GlyphClock</a> &middot; Created by <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
@@ -694,7 +722,8 @@
             sk: '<a href="index.html">Späť na GlyphClock</a> &middot; Vytvoril <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
             sl: '<a href="index.html">Nazaj na GlyphClock</a> &middot; Ustvaril <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
             es: '<a href="index.html">Volver a GlyphClock</a> &middot; Creado por <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
-            sv: '<a href="index.html">Tillbaka till GlyphClock</a> &middot; Skapat av <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.'
+            sv: '<a href="index.html">Tillbaka till GlyphClock</a> &middot; Skapat av <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.',
+            ja: '<a href="index.html">GlyphClockに戻る</a> &middot; <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a> が作成しました。'
         },
     };
 
