@@ -2,9 +2,12 @@
     'use strict';
 
     var SYMBOLS = ['🥐','🦋','🌷','☂️','🌵','🎈','👓','⚓','🦚','🤖','⭐','☁️','🌲','🪁','🪑','♻'];
+    var ENTRANCE_NAMES = ['croissant','butterfly','tulip','umbrella','cactus','balloon','glasses','anchor','peacock','robot','star','cloud','tree','kite','chair','recycle'];
     var TOTAL_PHASES = 48;
     var testMode = false;
     var testPhase = 0;
+    var lastGlyph = null;
+    var firstRender = true;
 
     function getMinutesSinceUtcMidnight() {
         var now = new Date();
@@ -36,6 +39,7 @@
 
     function renderPhase(phase) {
         var info = getDisplayForPhase(phase);
+        var block = Math.floor(phase / 3);
         var el = document.getElementById('currentTime');
         if (el) {
             ensureGlyphSpans(el);
@@ -43,7 +47,28 @@
             for (var i = 0; i < 3; i++) {
                 spans[i].textContent = info.glyph;
             }
-            el.className = 'glyph-' + info.count;
+            // Remove any previous entrance class
+            var classes = el.className.match(/glyph-entrance-\S+/);
+            if (classes) el.classList.remove(classes[0]);
+
+            // Play entrance animation only on the first sub-period of a new glyph (skip initial load)
+            if (!firstRender && info.glyph !== lastGlyph && info.count === 1) {
+                var entranceClass = 'glyph-entrance-' + ENTRANCE_NAMES[block];
+                el.className = 'glyph-' + info.count;
+                // Force reflow to restart animation
+                void el.offsetWidth;
+                el.classList.add(entranceClass);
+                // Remove entrance class after animation so normal styles take over
+                var onEnd = function () {
+                    el.classList.remove(entranceClass);
+                    el.removeEventListener('animationend', onEnd);
+                };
+                el.addEventListener('animationend', onEnd);
+            } else {
+                el.className = 'glyph-' + info.count;
+            }
+            lastGlyph = info.glyph;
+            firstRender = false;
         }
     }
 
