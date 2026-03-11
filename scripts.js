@@ -221,8 +221,9 @@
     document.addEventListener('click', handleActivity);
     document.addEventListener('touchstart', handleActivity);
 
+    startTime();
+
     document.addEventListener('DOMContentLoaded', function () {
-        startTime();
 
         var toggle = document.getElementById('testModeToggle');
         if (toggle) {

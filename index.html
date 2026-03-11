@@ -17,15 +17,13 @@
   <meta name="twitter:description" content="A timezone-free time system dividing the day into 16 symbolic blocks.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
+  <script defer src="scripts.js"></script>
+  <script defer src="i18n.js"></script>
   <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');if(p==='light'||p==='dark'){localStorage.setItem('darkMode',p==='dark');if(p==='dark')document.documentElement.classList.add('dark');return}var d=localStorage.getItem('darkMode');if(d==='true'||(d===null&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()</script>
 </head>
 <body data-page="index">
   <div class="content-layer">
     <div class="about">
-      <h1 data-i18n="title.about">About GlyphClock</h1>
-
-      <p class="about-text" data-i18n="about.desc">GlyphClock is focus over precision and a slower rhythm to the day. The day is divided into 16 blocks of 90 minutes, each represented by a unique emoji glyph. Time progresses in 30-minute phases, shown by displaying one, two, or three copies of the glyph. The time is the same everywhere in the world, but the meaning of each glyph becomes personal. A butterflies may come to mean wake up for one person and a well earned break for another.<br><br>You can set a focus text, which stays visible beneath the clock to remind you what you want to be doing during the current block.</p>
-
       <div class="about-clock">
         <h2 id="currentTime"></h2>
         <div id="testControls" class="test-controls" style="display:none">
@@ -43,6 +41,10 @@
         </div>
       </div>
 
+      <h1 data-i18n="title.about">About GlyphClock</h1>
+
+      <p class="about-text" data-i18n="about.desc">GlyphClock is focus over precision and a slower rhythm to the day. The day is divided into 16 blocks of 90 minutes, each represented by a unique emoji glyph. Time progresses in 30-minute phases, shown by displaying one, two, or three copies of the glyph. The time is the same everywhere in the world, but the meaning of each glyph becomes personal. A butterflies may come to mean wake up for one person and a well earned break for another.<br><br>You can set a focus text, which stays visible beneath the clock to remind you what you want to be doing during the current block.</p>
+
       <div class="about-glyphs" aria-hidden="true">
         <span>🥐</span><span>🦋</span><span>🌷</span><span>☂️</span><span>🌵</span><span>🎈</span><span>👓</span><span>⚓</span><span>🦚</span><span id="testModeToggle" style="cursor:pointer" title="Test mode">🤖</span><span>⭐</span><span>☁️</span><span>🌲</span><span>🪁</span><span>🪑</span><span>♻</span>
       </div>
@@ -50,7 +52,6 @@
       <p class="about-creator" data-i18n="about.creator">Created by <a href="https://bang-labs.eu" class="banglabs-brand">Bang Labs</a>.</p>
     </div>
   </div>
-  <script src="scripts.js"></script>
-  <script src="i18n.js"></script>
+
 </body>
 </html>

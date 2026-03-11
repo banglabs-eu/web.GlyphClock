@@ -217,7 +217,6 @@ body {
   background-color: whitesmoke;
   color: #222;
   transition: background-color 0.3s, color 0.3s;
-  animation: fadeIn 0.3s ease;
   margin: 0;
 }
 
@@ -495,7 +494,7 @@ body.clock-only {
 }
 
 .about-clock {
-  margin: 2.5rem 0;
+  margin: 0 0 2.5rem;
 }
 
 /* Focus area */
@@ -636,6 +635,6 @@ body.clock-only .focus-clear {
 }
 
 @media (max-width: 480px) {
-  .about { margin-top: 64px; }
+  .about { margin-top: 56px; }
   .about h1 { font-size: 1.6rem; }
 }
