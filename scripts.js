@@ -304,11 +304,20 @@
 
         focusInput.addEventListener('blur', function () {
             if (focusInput.style.display !== 'none') {
-                focusInput.style.display = 'none';
-                if (focusText.textContent) {
+                var val = focusInput.value.trim();
+                if (val) {
+                    focusText.textContent = val;
+                    try { localStorage.setItem('glyphclock-focus', val); } catch (err) {}
+                    focusInput.value = '';
+                    focusInput.style.display = 'none';
                     focusDisplay.style.display = '';
                 } else {
-                    focusAdd.style.display = '';
+                    focusInput.style.display = 'none';
+                    if (focusText.textContent) {
+                        focusDisplay.style.display = '';
+                    } else {
+                        focusAdd.style.display = '';
+                    }
                 }
             }
         });
