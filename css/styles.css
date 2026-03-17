@@ -596,6 +596,28 @@ body.clock-only .focus-clear {
   border-bottom: 1px solid rgba(150, 150, 150, 0.2);
 }
 
+.about-addon {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #999;
+  text-align: left;
+}
+
+.about-addon a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(150, 150, 150, 0.3);
+  transition: border-color 0.2s;
+}
+
+.about-addon a:hover {
+  border-color: currentColor;
+}
+
+.dark .about-addon {
+  color: #666;
+}
+
 .about-creator {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 3rem;
