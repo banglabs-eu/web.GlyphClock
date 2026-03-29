@@ -198,7 +198,7 @@
     }
     hideTimer = setTimeout(hideNav, 7000);
 
-    // Fade to clock-only after 11s, restore on interaction
+    // Fade to clock-only after 23s, restore on interaction
     var fadeTimer;
     var hasContentLayer = !!document.querySelector('.content-layer');
     function fadeToClockOnly() {
@@ -212,11 +212,11 @@
         showNav();
         if (hasContentLayer) {
             clearTimeout(fadeTimer);
-            fadeTimer = setTimeout(fadeToClockOnly, 11000);
+            fadeTimer = setTimeout(fadeToClockOnly, 23000);
         }
     }
     if (hasContentLayer) {
-        fadeTimer = setTimeout(fadeToClockOnly, 11000);
+        fadeTimer = setTimeout(fadeToClockOnly, 23000);
     }
     document.addEventListener('click', handleActivity);
     document.addEventListener('touchstart', handleActivity);
