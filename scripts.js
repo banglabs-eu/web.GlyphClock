@@ -3,6 +3,7 @@
 
     var SYMBOLS = ['🥐','🦋','🌷','☂️','🌵','🎈','👓','⚓','🦚','🤖','⭐','☁️','🌲','🪁','🪑','♻'];
     var ENTRANCE_NAMES = ['croissant','butterfly','tulip','umbrella','cactus','balloon','glasses','anchor','peacock','robot','star','cloud','tree','kite','chair','recycle'];
+    var SYMBOL_SVGS = ['croissant','butterfly','tulip','umbrella','cactus','balloon','glasses','anchor','peacock','robot','star','cloud','tree','kite','chair','recycle'];
     var TOTAL_PHASES = 48;
     var testMode = false;
     var testPhase = 0;
@@ -32,6 +33,10 @@
             for (var i = 0; i < 3; i++) {
                 var span = document.createElement('span');
                 span.className = 'glyph-item';
+                var img = document.createElement('img');
+                img.alt = '';
+                img.draggable = false;
+                span.appendChild(img);
                 el.appendChild(span);
             }
         }
@@ -43,9 +48,10 @@
         var el = document.getElementById('currentTime');
         if (el) {
             ensureGlyphSpans(el);
-            var spans = el.querySelectorAll('.glyph-item');
+            var imgs = el.querySelectorAll('.glyph-item img');
+            var svgPath = 'emoji/' + SYMBOL_SVGS[block] + '.svg';
             for (var i = 0; i < 3; i++) {
-                spans[i].textContent = info.glyph;
+                imgs[i].src = svgPath;
             }
             // Remove any previous entrance class
             var classes = el.className.match(/glyph-entrance-\S+/);

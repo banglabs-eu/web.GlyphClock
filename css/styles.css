@@ -9,7 +9,6 @@ p {
 }
 
 h2 {
-  font-size: 200px;
   text-align: center;
 }
 
@@ -22,14 +21,18 @@ h2 {
 
 .glyph-item {
   position: absolute;
-  font-size: 200px;
-  line-height: 1;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 0.5s ease;
+}
+
+.glyph-item img {
+  width: 200px;
+  height: 200px;
+  display: block;
 }
 
 /* 1 glyph: centered, full size */
@@ -468,6 +471,19 @@ body.clock-only {
   font-weight: 700;
   text-align: left;
   margin-bottom: 0.5rem;
+}
+
+.about-list {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  text-align: left;
+  padding-left: 1.5em;
+  margin: 0 0 1.5rem;
+}
+
+.about-list li {
+  margin-bottom: 0.25rem;
 }
 
 .about-text {
