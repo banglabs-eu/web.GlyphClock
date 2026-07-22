@@ -10,6 +10,18 @@
     var lastGlyph = null;
     var firstRender = true;
 
+    // Preload every glyph SVG so swapping <img src> is instant and never
+    // races the entrance animation (was causing the icon to pop in mid-transition).
+    for (var p = 0; p < SYMBOL_SVGS.length; p++) {
+        var preload = new Image();
+        preload.src = 'emoji/' + SYMBOL_SVGS[p] + '.svg';
+    }
+
+    var faviconLink = document.querySelector('link[rel="icon"]');
+    function updateFavicon(block) {
+        if (faviconLink) faviconLink.href = 'emoji/' + SYMBOL_SVGS[block] + '.svg';
+    }
+
     function getMinutesSinceUtcMidnight() {
         var now = new Date();
         return now.getUTCHours() * 60 + now.getUTCMinutes();
@@ -45,6 +57,7 @@
     function renderPhase(phase) {
         var info = getDisplayForPhase(phase);
         var block = Math.floor(phase / 3);
+        updateFavicon(block);
         var el = document.getElementById('currentTime');
         if (el) {
             ensureGlyphSpans(el);
@@ -279,6 +292,14 @@
 
         focusInput.addEventListener('click', function (e) {
             e.stopPropagation();
+        });
+
+        focusText.addEventListener('click', function (e) {
+            e.stopPropagation();
+            focusInput.value = focusText.textContent;
+            focusDisplay.style.display = 'none';
+            focusInput.style.display = '';
+            focusInput.focus();
         });
 
         focusInput.addEventListener('keydown', function (e) {
