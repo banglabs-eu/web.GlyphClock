@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<meta name="description" content="{{ .Description }}">
+<meta name="author" content="Adam">
+{{ $self := .Permalink }}{{ if eq .Kind `home` }}{{ $self = strings.TrimSuffix "index.html" $self }}{{ end }}
+<link rel="canonical" href="{{ $self }}">
+<meta property="og:type" content="{{ if eq .Kind `home` }}website{{ else }}article{{ end }}">
+<meta property="og:url" content="{{ $self }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Description }}">
+<meta property="og:site_name" content="GlyphClock">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ .Description }}">
+{{ range .AllTranslations }}
+{{ $href := .Permalink }}{{ if eq .Kind `home` }}{{ $href = strings.TrimSuffix "index.html" $href }}{{ end }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ $href }}">
+{{ end }}
+{{ with where .AllTranslations "Language.Lang" "en" }}
+{{ $href := (index . 0).Permalink }}{{ if eq (index . 0).Kind `home` }}{{ $href = strings.TrimSuffix "index.html" $href }}{{ end }}
+<link rel="alternate" hreflang="x-default" href="{{ $href }}">
+{{ end }}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/css/styles.css">
+{{ if eq .Kind `home` }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "GlyphClock",
+  "url": "https://glyphclock.bang-labs.eu/",
+  "description": "A timezone-free time system dividing the day into 16 symbolic blocks, designed for focus over precision.",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "sameAs": [
+    "https://chromewebstore.google.com/detail/glyphclock/dnaeobfppjhnicdhofpbjmcpompcjldh",
+    "https://addons.mozilla.org/en-US/firefox/addon/glyphclock/"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "Bang Labs",
+    "url": "https://bang-labs.eu"
+  }
+}
+</script>
+{{ end }}
+<script defer src="/scripts.js"></script>
+<script>(function(){try{var p=new URLSearchParams(location.search).get('theme');if(p==='light'||p==='dark'){localStorage.setItem('darkMode',p==='dark');if(p==='dark')document.documentElement.classList.add('dark');return}var d=localStorage.getItem('darkMode');if(d==='true'||(d===null&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()</script>

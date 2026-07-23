@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="about-clock">
+  <h2 id="currentTime"></h2>
+  <div id="testControls" class="test-controls" style="display:none">
+    <button id="testPrev" class="test-btn">◀</button>
+    <span id="testInfo"></span>
+    <button id="testNext" class="test-btn">▶</button>
+  </div>
+  <div class="focus-area">
+    <button class="focus-add" id="focusAdd">{{ .Params.focus_add }}</button>
+    <div class="focus-display" id="focusDisplay" style="display:none">
+      <span class="focus-text" id="focusText"></span>
+      <button class="focus-clear" id="focusClear">&times;</button>
+    </div>
+    <span class="focus-hint" id="focusHint" style="display:none">{{ .Params.focus_placeholder }}</span>
+    <input type="text" class="focus-input" id="focusInput" style="display:none">
+  </div>
+</div>
+
+<h1>{{ .Params.heading }}</h1>
+
+<p class="about-text">{{ .Params.about_desc | safeHTML }}</p>
+
+<p class="about-addon">{{ .Params.why_link | safeHTML }}</p>
+
+<div class="extension-links">
+  <a class="extension-link" href="https://chromewebstore.google.com/detail/glyphclock/dnaeobfppjhnicdhofpbjmcpompcjldh" target="_blank" rel="noopener">
+    <img class="extension-link__icon" src="/icons/chrome.svg" alt="" width="22" height="22">
+    <span>Chrome</span>
+  </a>
+  <a class="extension-link" href="https://addons.mozilla.org/en-US/firefox/addon/glyphclock/" target="_blank" rel="noopener">
+    <img class="extension-link__icon" src="/icons/firefox.svg" alt="" width="22" height="22">
+    <span>Firefox</span>
+  </a>
+</div>
+
+<div class="about-glyphs" aria-hidden="true">
+  <span><img src="/emoji/croissant.svg" alt="" width="24" height="24"></span><span><img src="/emoji/butterfly.svg" alt="" width="24" height="24"></span><span><img src="/emoji/tulip.svg" alt="" width="24" height="24"></span><span><img src="/emoji/umbrella.svg" alt="" width="24" height="24"></span><span><img src="/emoji/cactus.svg" alt="" width="24" height="24"></span><span><img src="/emoji/balloon.svg" alt="" width="24" height="24"></span><span><img src="/emoji/glasses.svg" alt="" width="24" height="24"></span><span><img src="/emoji/anchor.svg" alt="" width="24" height="24"></span><span><img src="/emoji/peacock.svg" alt="" width="24" height="24"></span><span id="testModeToggle" style="cursor:pointer" title="Test mode"><img src="/emoji/robot.svg" alt="" width="24" height="24"></span><span><img src="/emoji/star.svg" alt="" width="24" height="24"></span><span><img src="/emoji/cloud.svg" alt="" width="24" height="24"></span><span><img src="/emoji/tree.svg" alt="" width="24" height="24"></span><span><img src="/emoji/kite.svg" alt="" width="24" height="24"></span><span><img src="/emoji/chair.svg" alt="" width="24" height="24"></span><span><img src="/emoji/recycle.svg" alt="" width="24" height="24"></span>
+</div>
+
+<p class="about-creator">{{ .Params.footer | safeHTML }}</p>
+{{ end }}

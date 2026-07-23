@@ -15,12 +15,12 @@
     // races the entrance animation (was causing the icon to pop in mid-transition).
     for (var p = 0; p < SYMBOL_SVGS.length; p++) {
         var preload = new Image();
-        preload.src = 'emoji/' + SYMBOL_SVGS[p] + '.svg';
+        preload.src = '/emoji/' + SYMBOL_SVGS[p] + '.svg';
     }
 
     var faviconLink = document.querySelector('link[rel="icon"]');
     function updateFavicon(block) {
-        if (faviconLink) faviconLink.href = 'emoji/' + SYMBOL_SVGS[block] + '.svg';
+        if (faviconLink) faviconLink.href = '/emoji/' + SYMBOL_SVGS[block] + '.svg';
     }
 
     function getMinutesSinceUtcMidnight() {
@@ -72,7 +72,7 @@
         if (el) {
             ensureGlyphSpans(el);
             var imgs = el.querySelectorAll('.glyph-item img');
-            var svgPath = 'emoji/' + SYMBOL_SVGS[block] + '.svg';
+            var svgPath = '/emoji/' + SYMBOL_SVGS[block] + '.svg';
             for (var i = 0; i < 3; i++) {
                 imgs[i].src = svgPath;
             }
@@ -169,41 +169,38 @@
     }
 
     // Navigation
+    // The nav itself (logo, dark toggle button, language switcher list) is
+    // server-rendered by layouts/partials/nav.html; this just wires behavior
+    // onto the existing elements.
 
-    var nav = document.createElement('nav');
-    nav.className = 'nav';
-    nav.id = 'nav';
-
-    var navInner = document.createElement('div');
-    navInner.className = 'nav-inner';
-
-    var logoLink = document.createElement('a');
-    logoLink.href = 'index.html';
-    logoLink.className = 'nav-logo';
-    logoLink.textContent = 'GlyphClock';
-
-    var navActions = document.createElement('div');
-    navActions.className = 'nav-actions';
-
-    var darkBtn = document.createElement('button');
-    darkBtn.className = 'theme-toggle';
-    darkBtn.setAttribute('aria-label', 'Toggle dark mode');
-    darkBtn.innerHTML = '<svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>' +
-        '<svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    var nav = document.getElementById('nav');
+    var darkBtn = document.querySelector('.theme-toggle');
 
     var isDark = darkModeBool();
     applyDarkMode(isDark);
-    darkBtn.addEventListener('click', function () {
-        var nowDark = !document.documentElement.classList.contains('dark');
-        applyDarkMode(nowDark);
-        try { localStorage.setItem('darkMode', nowDark); } catch (e) {}
-    });
-    navActions.appendChild(darkBtn);
+    if (darkBtn) {
+        darkBtn.addEventListener('click', function () {
+            var nowDark = !document.documentElement.classList.contains('dark');
+            applyDarkMode(nowDark);
+            try { localStorage.setItem('darkMode', nowDark); } catch (e) {}
+        });
+    }
 
-    navInner.appendChild(logoLink);
-    navInner.appendChild(navActions);
-    nav.appendChild(navInner);
-    document.body.appendChild(nav);
+    // Language switcher dropdown
+    var langBtn = document.getElementById('langSwitcherBtn');
+    var langList = document.getElementById('langSwitcherList');
+    if (langBtn && langList) {
+        langBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var visible = langList.style.display !== 'none';
+            langList.style.display = visible ? 'none' : 'block';
+        });
+        document.addEventListener('click', function (e) {
+            if (!langList.contains(e.target) && e.target !== langBtn) {
+                langList.style.display = 'none';
+            }
+        });
+    }
 
     // Cross-project theme carry-over
     var SIBLING_DOMAINS = ['snippets.eu','cli.snippets.eu','web.snippets.eu','glyphclock.bang-labs.eu'];

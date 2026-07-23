@@ -1,0 +1,23 @@
+{{ define "main" }}
+<h1>{{ .Params.heading }}</h1>
+
+{{ range .Params.paragraphs }}
+<p class="about-text">{{ . | safeHTML }}</p>
+{{ end }}
+
+<h2 class="privacy-heading">{{ .Params.refs_heading }}</h2>
+
+<p class="about-text">{{ .Params.refs_intro | safeHTML }}</p>
+
+<p class="about-text">{{ .Params.refs_lineswith }}</p>
+
+<ul class="about-list">{{ .Params.refs_list | safeHTML }}</ul>
+
+<p class="about-text">{{ .Params.refs_closing }}</p>
+
+<p class="about-creator">{{ .Params.footer | safeHTML }}</p>
+{{ end }}
+
+{{ define "extra_scripts" }}
+<script src="/js/why-citations.js"></script>
+{{ end }}

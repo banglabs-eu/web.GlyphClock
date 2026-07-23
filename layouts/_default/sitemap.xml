@@ -1,0 +1,14 @@
+{{ "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{ range .Data.Pages }}
+  {{ $loc := .Permalink }}{{ if eq .Kind `home` }}{{ $loc = strings.TrimSuffix "index.html" $loc }}{{ end }}
+  <url>
+    <loc>{{ $loc }}</loc>
+    {{ if .Lastmod }}<lastmod>{{ .Lastmod.Format "2006-01-02" }}</lastmod>{{ end }}
+    {{ range .AllTranslations }}
+    {{ $href := .Permalink }}{{ if eq .Kind `home` }}{{ $href = strings.TrimSuffix "index.html" $href }}{{ end }}
+    <xhtml:link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ $href }}" />
+    {{ end }}
+  </url>
+  {{ end }}
+</urlset>

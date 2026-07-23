@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body data-page="{{ .Params.layout }}">
+  <div class="content-layer">
+    <div class="about">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </div>
+  {{ partial "nav.html" . }}
+  {{ block "extra_scripts" . }}{{ end }}
+</body>
+</html>
