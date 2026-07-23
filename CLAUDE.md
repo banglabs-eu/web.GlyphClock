@@ -22,7 +22,15 @@ Open any HTML file directly in a browser, or use any static server (e.g. `python
 
 ## Deployment
 
-Two Azure Static Web Apps deployments triggered by GitHub Actions on push to `main` or PR events. Workflow files in `.github/workflows/`. Custom domain: `glyphclock.bang-labs.eu` (CNAME).
+GitHub Pages, custom domain `glyphclock.bang-labs.eu` pinned via the `CNAME` file (same
+pattern as other Bang Labs static sites). Deploys automatically on push to `main` — no
+workflow file needed, GitHub's built-in Pages build handles it. Confirmed via response
+headers (`server: GitHub.com`).
+
+Two `azure-static-web-apps-*.yml` workflows previously existed in `.github/workflows/`
+from an earlier Azure Static Web Apps setup that was never actually wired to the live
+domain — they ran on every push and failed silently for months. Removed; GitHub Pages
+was always the real deploy path.
 
 To deploy: `git push origin main`
 
