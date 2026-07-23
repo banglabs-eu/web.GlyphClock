@@ -4,6 +4,7 @@
     var SYMBOLS = ['🥐','🦋','🌷','☂️','🌵','🎈','👓','⚓','🦚','🤖','⭐','☁️','🌲','🪁','🪑','♻'];
     var ENTRANCE_NAMES = ['croissant','butterfly','tulip','umbrella','cactus','balloon','glasses','anchor','peacock','robot','star','cloud','tree','kite','chair','recycle'];
     var SYMBOL_SVGS = ['croissant','butterfly','tulip','umbrella','cactus','balloon','glasses','anchor','peacock','robot','star','cloud','tree','kite','chair','recycle'];
+    var SUB_LABELS = ['first phase', 'middle phase', 'final phase'];
     var TOTAL_PHASES = 48;
     var testMode = false;
     var testPhase = 0;
@@ -52,6 +53,15 @@
                 el.appendChild(span);
             }
         }
+        if (!el.querySelector('.visually-hidden')) {
+            var label = document.createElement('span');
+            label.className = 'visually-hidden';
+            el.appendChild(label);
+        }
+    }
+
+    function capitalize(s) {
+        return s.charAt(0).toUpperCase() + s.slice(1);
     }
 
     function renderPhase(phase) {
@@ -65,6 +75,11 @@
             var svgPath = 'emoji/' + SYMBOL_SVGS[block] + '.svg';
             for (var i = 0; i < 3; i++) {
                 imgs[i].src = svgPath;
+            }
+            var label = el.querySelector('.visually-hidden');
+            if (label) {
+                label.textContent = capitalize(ENTRANCE_NAMES[block]) + ' ' + SYMBOLS[block] +
+                    ' — ' + SUB_LABELS[info.count - 1] + ' of the current GlyphClock time block.';
             }
             // Remove any previous entrance class
             var classes = el.className.match(/glyph-entrance-\S+/);
