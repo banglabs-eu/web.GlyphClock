@@ -79,7 +79,7 @@
             var label = el.querySelector('.visually-hidden');
             if (label) {
                 label.textContent = capitalize(ENTRANCE_NAMES[block]) + ' ' + SYMBOLS[block] +
-                    ' — ' + SUB_LABELS[info.count - 1] + ' of the current GlyphClock time block.';
+                    ', ' + SUB_LABELS[info.count - 1] + ' of the current GlyphClock time block.';
             }
             // Remove any previous entrance class
             var classes = el.className.match(/glyph-entrance-\S+/);
