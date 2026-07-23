@@ -242,8 +242,10 @@ a {
 }
 
 /* Clock-only mode: hide non-clock elements, center clock */
+/* Reappearing: resize (expand) first, then fade in */
 .about > *:not(.about-clock) {
-  transition: opacity 0.8s ease, max-height 0.8s ease, margin 0.8s ease, padding 0.8s ease;
+  transition: max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease,
+              opacity 0.4s ease 0.4s;
   max-height: 500px;
   overflow: hidden;
 }
@@ -252,7 +254,10 @@ a {
   transition: margin 0.8s ease, padding 0.8s ease;
 }
 
+/* Disappearing: fade out first, then resize (collapse) */
 body.clock-only .about > *:not(.about-clock) {
+  transition: opacity 0.4s ease, max-height 0.4s ease 0.4s, margin 0.4s ease 0.4s,
+              padding 0.4s ease 0.4s;
   opacity: 0;
   max-height: 0;
   margin: 0;
@@ -536,6 +541,24 @@ body.clock-only {
 
 .dark .focus-add:hover {
   color: #ccc;
+}
+
+.focus-hint {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 0.4rem;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+.focus-hint.focus-hint--faded {
+  opacity: 0;
+}
+
+.dark .focus-hint {
+  color: #777;
 }
 
 .focus-input {

@@ -270,6 +270,23 @@
         var focusDisplay = document.getElementById('focusDisplay');
         var focusText = document.getElementById('focusText');
         var focusClear = document.getElementById('focusClear');
+        var focusHint = document.getElementById('focusHint');
+        var focusHintTimer;
+
+        function showFocusHint() {
+            clearTimeout(focusHintTimer);
+            focusHint.classList.remove('focus-hint--faded');
+            focusHint.style.display = '';
+            focusHintTimer = setTimeout(function () {
+                focusHint.classList.add('focus-hint--faded');
+            }, 1800);
+        }
+
+        function hideFocusHint() {
+            clearTimeout(focusHintTimer);
+            focusHint.classList.remove('focus-hint--faded');
+            focusHint.style.display = 'none';
+        }
 
         function loadFocus() {
             var saved = '';
@@ -287,6 +304,7 @@
             e.stopPropagation();
             focusAdd.style.display = 'none';
             focusInput.style.display = '';
+            showFocusHint();
             focusInput.focus();
         });
 
@@ -305,12 +323,14 @@
         focusInput.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
                 var val = focusInput.value.trim();
+                hideFocusHint();
                 if (val) {
                     focusText.textContent = val;
                     try { localStorage.setItem('glyphclock-focus', val); } catch (err) {}
                     focusInput.style.display = 'none';
                     focusInput.value = '';
                     focusDisplay.style.display = '';
+                    fadeToClockOnly();
                 } else {
                     focusInput.style.display = 'none';
                     focusAdd.style.display = '';
@@ -318,6 +338,7 @@
                 e.stopPropagation();
             }
             if (e.key === 'Escape') {
+                hideFocusHint();
                 focusInput.style.display = 'none';
                 focusInput.value = '';
                 if (focusText.textContent) {
@@ -332,6 +353,7 @@
         focusInput.addEventListener('blur', function () {
             if (focusInput.style.display !== 'none') {
                 var val = focusInput.value.trim();
+                hideFocusHint();
                 if (val) {
                     focusText.textContent = val;
                     try { localStorage.setItem('glyphclock-focus', val); } catch (err) {}
