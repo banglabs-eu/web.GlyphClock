@@ -1,0 +1,137 @@
+baseURL = "https://glyphclock.bang-labs.eu/"
+title = "GlyphClock"
+locale = "en"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+uglyURLs = true
+disableKinds = ["taxonomy", "term", "RSS"]
+enableRobotsTXT = false
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+
+[languages.en]
+  contentDir = "content/en"
+  label = "English"
+  weight = 1
+
+[languages.bg]
+  contentDir = "content/bg"
+  label = "Български"
+  weight = 2
+
+[languages.hr]
+  contentDir = "content/hr"
+  label = "Hrvatski"
+  weight = 3
+
+[languages.cs]
+  contentDir = "content/cs"
+  label = "Čeština"
+  weight = 4
+
+[languages.da]
+  contentDir = "content/da"
+  label = "Dansk"
+  weight = 5
+
+[languages.nl]
+  contentDir = "content/nl"
+  label = "Nederlands"
+  weight = 6
+
+[languages.et]
+  contentDir = "content/et"
+  label = "Eesti"
+  weight = 7
+
+[languages.fi]
+  contentDir = "content/fi"
+  label = "Suomi"
+  weight = 8
+
+[languages.fr]
+  contentDir = "content/fr"
+  label = "Français"
+  weight = 9
+
+[languages.de]
+  contentDir = "content/de"
+  label = "Deutsch"
+  weight = 10
+
+[languages.el]
+  contentDir = "content/el"
+  label = "Ελληνικά"
+  weight = 11
+
+[languages.hu]
+  contentDir = "content/hu"
+  label = "Magyar"
+  weight = 12
+
+[languages.ga]
+  contentDir = "content/ga"
+  label = "Gaeilge"
+  weight = 13
+
+[languages.it]
+  contentDir = "content/it"
+  label = "Italiano"
+  weight = 14
+
+[languages.lv]
+  contentDir = "content/lv"
+  label = "Latviešu"
+  weight = 15
+
+[languages.lt]
+  contentDir = "content/lt"
+  label = "Lietuvių"
+  weight = 16
+
+[languages.mt]
+  contentDir = "content/mt"
+  label = "Malti"
+  weight = 17
+
+[languages.pl]
+  contentDir = "content/pl"
+  label = "Polski"
+  weight = 18
+
+[languages.pt]
+  contentDir = "content/pt"
+  label = "Português"
+  weight = 19
+
+[languages.ro]
+  contentDir = "content/ro"
+  label = "Română"
+  weight = 20
+
+[languages.sk]
+  contentDir = "content/sk"
+  label = "Slovenčina"
+  weight = 21
+
+[languages.sl]
+  contentDir = "content/sl"
+  label = "Slovenščina"
+  weight = 22
+
+[languages.es]
+  contentDir = "content/es"
+  label = "Español"
+  weight = 23
+
+[languages.sv]
+  contentDir = "content/sv"
+  label = "Svenska"
+  weight = 24
+
+[languages.ja]
+  contentDir = "content/ja"
+  label = "日本語"
+  weight = 25

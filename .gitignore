@@ -1,3 +1,8 @@
+# Hugo build output (generated fresh by CI, not committed)
+public/
+resources/
+.hugo_build.lock
+
 # Xcode generated project (use xcodegen to regenerate)
 watchos/*.xcodeproj
 
