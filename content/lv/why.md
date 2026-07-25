@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Kāpēc GlyphClock darbojas | GlyphClock",
+  "title": "Domāšana aiz GlyphClock | GlyphClock",
   "description": "Kāpēc pulksteņa precizitātes aizstāšana ar simboliskiem laika blokiem uzlabo fokusu, radošumu un koordināciju.",
-  "heading": "Kāpēc GlyphClock darbojas",
+  "heading": "Domāšana aiz GlyphClock",
   "paragraphs": [
     "GlyphClock darbojas, jo lielākā daļa jūsu dienas negūst labumu no precīza laika; tā gūst labumu no izmantojama laika. Pulksteņa laiks tika izstrādāts koordinācijai (rūpnīcas, vilcieni, grafiki), nevis domāšanai. Kad jūs piemērojat minūšu precizitāti darbam, kas prasa fokusu, jūs saņemat pastāvīgus pārtraukumus, mākslīgu spiedienu un sliktākus rezultātus. GlyphClock novērš šo neatbilstību, aizstājot precizitāti ar struktūru.",
     "Pirmkārt, jūsu smadzenes nedarbojas minūti pa minūtei. Jūsu enerģija ceļas un krīt ciklos, aptuveni 90 minūtes, saskaņā ar Kleitman un vēlākiem pētījumiem. Tas nav precīzs, bet pietiekami konsekvents, lai parādītos cilvēku dabiskajā darba veidā. Pat augstu sasniegumu cilvēki, piemēram, Ericsson pētītie mūziķi, pēc noklusējuma izvēlas fokusētas sesijas ar pārtraukumiem aptuveni šajā mērogā. GlyphClock neuzspiež ritmu; tas saskaņojas ar jau esošu.",

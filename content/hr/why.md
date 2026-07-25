@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Zašto GlyphClock funkcionira | GlyphClock",
+  "title": "Razmišljanje iza GlyphClocka | GlyphClock",
   "description": "Zašto zamjena preciznosti sata simboličnim vremenskim blokovima poboljšava fokus, kreativnost i koordinaciju.",
-  "heading": "Zašto GlyphClock funkcionira",
+  "heading": "Razmišljanje iza GlyphClocka",
   "paragraphs": [
     "GlyphClock funkcionira jer većina vašeg dana nema koristi od preciznog vremena; ima koristi od upotrebljivog vremena. Satno vrijeme dizajnirano je za koordinaciju (tvornice, vlakovi, rasporedi), ne za razmišljanje. Kada primijenite preciznost na minutu na posao koji zahtijeva fokus, dobivate stalne prekide, umjetni pritisak i lošije rezultate. GlyphClock uklanja tu neusklađenost zamjenjujući preciznost strukturom.",
     "Prvo, vaš mozak ne radi minutu po minutu. Vaša energija raste i pada u ciklusima, otprilike oko 90 minuta, prema Kleitmanu i kasnijim studijama. Nije točno, ali je dovoljno dosljedno da se pojavljuje u načinu na koji ljudi prirodno rade. Čak i vrhunski izvođači, poput glazbenika koje je proučavao Ericsson, prirodno prelaze na fokusirane sesije s pauzama na otprilike ovoj razini. GlyphClock ne nameće ritam; usklađuje se s onim koji već postoji.",

@@ -53,7 +53,7 @@ workflow is now the only build step.
 ```
 hugo.toml                     Site config: baseURL, [languages.*] blocks (label, weight, contentDir)
 content/<lang>/_index.md      Home page content, one JSON-front-matter file per language
-content/<lang>/why.md         "Why GlyphClock Works" page content, per language
+content/<lang>/why.md         "Thinking Behind GlyphClock" page content, per language
 content/<lang>/privacy.md     Privacy policy content, per language
 content/<lang>/planners.md    Printable-planners download page content, per language
 layouts/_default/baseof.html  Shared shell: <head>, .content-layer/.about wrapper, nav, extra_scripts block

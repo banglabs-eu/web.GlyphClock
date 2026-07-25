@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Waarom GlyphClock werkt | GlyphClock",
+  "title": "De gedachte achter GlyphClock | GlyphClock",
   "description": "Waarom het vervangen van klokprecisie door symbolische tijdblokken focus, creativiteit en coördinatie verbetert.",
-  "heading": "Waarom GlyphClock werkt",
+  "heading": "De gedachte achter GlyphClock",
   "paragraphs": [
     "GlyphClock werkt omdat het grootste deel van je dag niet profiteert van precies tijd; het profiteert van bruikbare tijd. Kloktijd is ontworpen voor coördinatie (fabrieken, treinen, schema’s), niet voor denken. Wanneer je minutenprecisie toepast op werk dat focus vereist, krijg je constante onderbrekingen, kunstmatige druk en slechtere resultaten. GlyphClock verwijdert die mismatch door precisie te vervangen door structuur.",
     "Ten eerste werkt je brein niet minuut voor minuut. Je energie stijgt en daalt in cycli, ruwweg rond de 90 minuten, volgens Kleitman en latere studies. Het is niet exact, maar het is consistent genoeg om zichtbaar te zijn in hoe mensen van nature werken. Zelfs toppresteerders, zoals de musici bestudeerd door Ericsson, kiezen standaard voor gefocuste sessies met pauzes op ongeveer deze schaal. GlyphClock dwingt geen ritme af; het sluit aan bij een ritme dat al bestaat.",

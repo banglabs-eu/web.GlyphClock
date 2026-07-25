@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Miks GlyphClock toimib | GlyphClock",
+  "title": "Mõttekäik GlyphClocki taga | GlyphClock",
   "description": "Miks kella täpsuse asendamine sümboolsete ajaplokkidega parandab keskendumist, loovust ja koordineerimist.",
-  "heading": "Miks GlyphClock toimib",
+  "heading": "Mõttekäik GlyphClocki taga",
   "paragraphs": [
     "GlyphClock toimib, sest suurem osa teie päevast ei saa kasu täpsest ajast; see saab kasu kasutatavast ajast. Kellaaeg loodi koordineerimiseks (tehased, rongid, graafikud), mitte mõtlemiseks. Kui rakendate minutilist täpsust tööle, mis nõuab keskendumist, saate pidevaid katkestusi, kunstlikku survet ja halvemaid tulemusi. GlyphClock kõrvaldab selle ebakõla, asendades täpsuse struktuuriga.",
     "Esiteks, teie aju ei tööta minut-minutilt. Teie energia tõuseb ja langeb tsüklites, umbes 90 minuti, vastavalt Kleitmanile ja hilisematele uuringutele. See ei ole täpne, kuid on piisavalt järjepidev, et avalduda selles, kuidas inimesed loomulikult töötavad. Isegi kõrgete saavutustega inimesed, nagu Ericssoni uuritud muusikud, kalduvad vaikimisi keskendunud seansside ja pauside poole umbes selles skaalas. GlyphClock ei sunni rütmi peale; see joondub juba olemasolevaga.",

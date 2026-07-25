@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Pourquoi GlyphClock fonctionne | GlyphClock",
+  "title": "La réflexion derrière GlyphClock | GlyphClock",
   "description": "Pourquoi remplacer la précision horlogère par des blocs de temps symboliques améliore la concentration, la créativité et la coordination.",
-  "heading": "Pourquoi GlyphClock fonctionne",
+  "heading": "La réflexion derrière GlyphClock",
   "paragraphs": [
     "GlyphClock fonctionne parce que la majeure partie de votre journée ne bénéficie pas du temps précis; elle bénéficie du temps utilisable. Le temps horloger a été conçu pour la coordination (usines, trains, horaires), pas pour la réflexion. Quand vous appliquez une précision à la minute à un travail qui demande de la concentration, vous obtenez des interruptions constantes, une pression artificielle et de moins bons résultats. GlyphClock supprime ce décalage en remplaçant la précision par la structure.",
     "Premièrement, votre cerveau ne fonctionne pas minute par minute. Votre énergie monte et descend en cycles, environ 90 minutes, selon Kleitman et des études ultérieures. Ce n’est pas exact, mais c’est suffisamment constant pour se manifester dans la façon dont les gens travaillent naturellement. Même les personnes très performantes, comme les musiciens étudiés par Ericsson, adoptent par défaut des sessions concentrées avec des pauses à peu près à cette échelle. GlyphClock n’impose pas un rythme ; il s’aligne sur un rythme qui existe déjà.",

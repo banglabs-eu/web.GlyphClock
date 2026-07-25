@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Cén fáth a n-oibríonn GlyphClock | GlyphClock",
+  "title": "An smaointeoireacht taobh thiar de GlyphClock | GlyphClock",
   "description": "Cén fáth a bhfeabhsaíonn blocanna ama siombalach an fócas, an chruthaitheacht agus an comhordú in ionad cruinneas an chloig.",
-  "heading": "Cén fáth a n-oibríonn GlyphClock",
+  "heading": "An smaointeoireacht taobh thiar de GlyphClock",
   "paragraphs": [
     "Oibríonn GlyphClock toisc nach mbaineann an chuid is mó de do lá leas as am cruinn; baineann sé leas as am inúsáidte. Dearadh am an chloig le haghaidh comhordú (monarchana, traenacha, sceidil), ní le haghaidh smaoineamh. Nuair a chuireann tú cruinneas nóiméid i bhfeidhm ar obair a éilíonn fócas, faigheann tú cur isteach síoraí, brú saorga, agus torthaí níos measa. Baineann GlyphClock an mhímheaitseáil sin trí struchtúr a chur in áit cruinnis.",
     "Ar dtús, ní oibríonn d’inchinn nóiméad ar nóiméad. Ardaíonn agus titeann do chuid fuinnimh i dtimthriallta, thart ar 90 nóiméad, de réir Kleitman agus staidéir níos déanaí. Níl sé beacht, ach tá sé comhsheasmhach go leor le bheith le feiceáil sa chaoi a n-oibríonn daoine go nádúrtha. Fiú daoine ardfheidhmíochta, cosúil leis na ceoltóirí a rinne Ericsson staidéar orthu, roghnaíonn siad seisiúin dhírithe le sosanna ar an scála seo. Ní bhrúnn GlyphClock rithim; ailíníonn sé le ceann atá ann cheana.",

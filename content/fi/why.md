@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Miksi GlyphClock toimii | GlyphClock",
+  "title": "Ajattelu GlyphClockin takana | GlyphClock",
   "description": "Miksi kellon tarkkuuden korvaaminen symbolisilla aikalohkoilla parantaa keskittymistä, luovuutta ja koordinointia.",
-  "heading": "Miksi GlyphClock toimii",
+  "heading": "Ajattelu GlyphClockin takana",
   "paragraphs": [
     "GlyphClock toimii, koska suurin osa päivästäsi ei hyödy tarkasta ajasta; se hyötyy käyttökelpoisesta ajasta. Kellonaika suunniteltiin koordinointiin (tehtaat, junat, aikataulut), ei ajatteluun. Kun sovellat minuuttitason tarkkuutta työhön, joka vaatii keskittymistä, saat jatkuvia keskeytyksiä, keinotekoista painetta ja huonompia tuloksia. GlyphClock poistaa tämän epäsuhdan korvaamalla tarkkuuden rakenteella.",
     "Ensinnäkin aivosi eivät toimi minuutti minuutilta. Energiasi nousee ja laskee sykleissä, karkeasti noin 90 minuuttia, Kleitmanin ja myöhempien tutkimusten mukaan. Se ei ole tarkkaa, mutta se on riittävän johdonmukaista näkyäkseen tavassa, jolla ihmiset luonnollisesti työskentelevät. Jopa huippusuorittajat, kuten Ericssonin tutkimat muusikot, siirtyvät luonnostaan keskittyneisiin jaksoihin taukoineen suunnilleen tässä mittakaavassa. GlyphClock ei pakota rytmiä; se mukautuu jo olemassa olevaan.",

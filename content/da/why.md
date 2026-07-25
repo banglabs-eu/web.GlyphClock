@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Hvorfor GlyphClock virker | GlyphClock",
+  "title": "Tankegangen bag GlyphClock | GlyphClock",
   "description": "Hvorfor udskiftning af urpræcision med symbolske tidsblokke forbedrer fokus, kreativitet og koordination.",
-  "heading": "Hvorfor GlyphClock virker",
+  "heading": "Tankegangen bag GlyphClock",
   "paragraphs": [
     "GlyphClock virker, fordi det meste af din dag ikke drager fordel af præcis tid; den drager fordel af brugbar tid. Klokketid blev designet til koordination (fabrikker, tog, skemaer), ikke til tænkning. Når du anvender minutpræcision på arbejde der kræver fokus, får du konstante afbrydelser, kunstigt pres og dårligere resultater. GlyphClock fjerner den ubalance ved at erstatte præcision med struktur.",
     "For det første fungerer din hjerne ikke minut for minut. Din energi stiger og falder i cyklusser, omkring 90 minutter, ifølge Kleitman og senere studier. Det er ikke eksakt, men det er konsistent nok til at vise sig i den måde folk naturligt arbejder på. Selv toppræsterende, som de musikere Ericsson studerede, falder naturligt ind i fokuserede sessioner med pauser på omtrent denne skala. GlyphClock tvinger ikke en rytme; den tilpasser sig en der allerede eksisterer.",

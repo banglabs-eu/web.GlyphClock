@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Għaliex GlyphClock jaħdem | GlyphClock",
+  "title": "Il-ħsieb wara GlyphClock | GlyphClock",
   "description": "Għaliex is-sostituzzjoni tal-preċiżjoni tal-arloġġ bi blokok ta' ħin simboliċi ttejjeb il-fokus, il-kreattività u l-koordinazzjoni.",
-  "heading": "Għaliex GlyphClock jaħdem",
+  "heading": "Il-ħsieb wara GlyphClock",
   "paragraphs": [
     "GlyphClock jaħdem għax-xejn il-biċċa l-kbira tal-ġurnata tiegħek ma tibbenifikax mill-ħin preċiż; tibbenifika mill-ħin utli. Il-ħin tal-arloġġ kien iddisinjat għall-koordinazzjoni (fabbriki, ferroviji, skedi), mhux għat-tħassib. Meta tapplika preċiżjoni ta' minuta fuq xogħol li jirrikjedi fokus, tikseb interruzzjonijiet kostanti, pressjoni artifiċjali, u riżultati agħar. GlyphClock ineħħi din l-inkompatibbiltà billi jissostitwixxi l-preċiżjoni bi struttura.",
     "L-ewwel, moħħok ma taħdimx minuta b'minuta. L-enerġija tiegħek togħla u tonqos f'ċikli, madwar 90 minuta, skont Kleitman u studji aktar tard. Mhix eżatt, iżda huwa konsistenti biżżejjed biex jidher fil-mod kif in-nies jaħdmu b'mod naturali. Saħansitra l-aqwa performers, bħall-mużiċisti studjati minn Ericsson, jagħżlu sessjonijiet iffukati bi waqfiet f'din l-iskala. GlyphClock ma jġiegħlekx ritmu; jallinja ruħu ma' wieħed li diġà jeżisti.",

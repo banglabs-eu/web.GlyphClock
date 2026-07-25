@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Kodėl GlyphClock veikia | GlyphClock",
+  "title": "Mąstymas už GlyphClock | GlyphClock",
   "description": "Kodėl laikrodžio tikslumo pakeitimas simboliniais laiko blokais pagerina susikaupimą, kūrybiškumą ir koordinavimą.",
-  "heading": "Kodėl GlyphClock veikia",
+  "heading": "Mąstymas už GlyphClock",
   "paragraphs": [
     "GlyphClock veikia, nes didžioji jūsų dienos dalis negauna naudos iš tikslaus laiko; ji gauna naudos iš panaudojamo laiko. Laikrodžio laikas buvo sukurtas koordinavimui (gamyklos, traukiniai, tvarkaraščiai), o ne mąstymui. Kai taikote minučių tikslumą darbui, reikalaujančiam susikaupimo, gaunate nuolatinius pertrūkius, dirbtinį spaudimą ir blogesnius rezultatus. GlyphClock pašalina šį neatitikimą, pakeisdamas tikslumą struktūra.",
     "Pirma, jūsų smegenys neveikia minutę po minutės. Jūsų energija kyla ir krinta ciklais, maždaug apie 90 minučių, pagal Kleitman ir vėlesnius tyrimus. Tai nėra tikslus, bet pakankamai nuoseklu, kad pasireikštų natūraliu žmonių darbo būdu. Net aukšto meistriškumo žmonės, kaip Ericsson tirti muzikantai, natūraliai renkasi sutelktas sesijas su pertraukomis maždaug tokiu masteliu. GlyphClock neprimeta ritmo; jis suderinamas su jau egzistuojančiu.",

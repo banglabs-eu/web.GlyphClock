@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "De ce funcționează GlyphClock | GlyphClock",
+  "title": "Gândirea din spatele GlyphClock | GlyphClock",
   "description": "De ce înlocuirea preciziei ceasului cu blocuri de timp simbolice îmbunătățește concentrarea, creativitatea și coordonarea.",
-  "heading": "De ce funcționează GlyphClock",
+  "heading": "Gândirea din spatele GlyphClock",
   "paragraphs": [
     "GlyphClock funcționează pentru că cea mai mare parte a zilei tale nu beneficiază de timp precis; beneficiază de timp utilizabil. Timpul ceasului a fost conceput pentru coordonare (fabrici, trenuri, programe), nu pentru gândire. Când aplici precizie la minut unei munci care necesită concentrare, obții întreruperi constante, presiune artificială și rezultate mai slabe. GlyphClock elimină această nepotrivire înlocuind precizia cu structura.",
     "În primul rând, creierul tău nu funcționează minut cu minut. Energia ta crește și scade în cicluri, aproximativ 90 de minute, conform lui Kleitman și studiilor ulterioare. Nu este exact, dar este suficient de consistent pentru a se manifesta în modul în care oamenii lucrează natural. Chiar și performerii de top, precum muzicienii studiați de Ericsson, aleg implicit sesiuni concentrate cu pauze la aproximativ această scară. GlyphClock nu impune un ritm; se aliniază cu unul care deja există.",

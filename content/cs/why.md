@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Proč GlyphClock funguje | GlyphClock",
+  "title": "Myšlení za GlyphClock | GlyphClock",
   "description": "Proč nahrazení přesnosti hodin symbolickými časovými bloky zlepšuje soustředění, kreativitu a koordinaci.",
-  "heading": "Proč GlyphClock funguje",
+  "heading": "Myšlení za GlyphClock",
   "paragraphs": [
     "GlyphClock funguje, protože většina vašeho dne neprofituje z přesného času; profituje z použitelného času. Hodinový čas byl navržen pro koordinaci (továrny, vlaky, rozvrhy), ne pro myšlení. Když aplikujete minutovou přesnost na práci vyžadující soustředění, získáte neustálá přerušení, umělý tlak a horší výsledky. GlyphClock odstraňuje tento nesoulad nahrazením přesnosti strukturou.",
     "Zaprvé, váš mozek nepracuje minutu po minutě. Vaše energie stoupá a klesá v cyklech, zhruba kolem 90 minut, podle Kleitmana a pozdějších studií. Není to přesné, ale je to dostatečně konzistentní, aby se to projevovalo ve způsobu, jakým lidé přirozeně pracují. I vysoce výkonní lidé, jako hudebníci studovaní Ericssonem, se přirozeně uchylují k soustředěným sezením s přestávkami v přibližně tomto měřítku. GlyphClock nevnucuje rytmus; ladí se s tím, který už existuje.",

@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Why GlyphClock Works | GlyphClock",
+  "title": "Thinking Behind GlyphClock | GlyphClock",
   "description": "Why replacing clock precision with symbolic time blocks improves focus, creativity, and coordination.",
-  "heading": "Why GlyphClock Works",
+  "heading": "Thinking Behind GlyphClock",
   "paragraphs": [
     "GlyphClock works because most of your day doesn’t benefit from precise time; it benefits from usable time. Clock time was designed for coordination (factories, trains, schedules), not for thinking. When you apply minute-level precision to work that requires focus, you get constant interruptions, artificial pressure, and worse outcomes. GlyphClock removes that mismatch by replacing precision with structure.",
     "First, your brain doesn’t operate minute-by-minute. Your energy rises and falls in cycles, roughly around 90 minutes, according to Kleitman and later studies. It’s not exact, but it’s consistent enough that it shows up in how people naturally work. Even high performers, like the musicians studied by Ericsson, default to focused sessions with breaks at about this scale. GlyphClock doesn’t force a rhythm; it aligns with one that already exists.",

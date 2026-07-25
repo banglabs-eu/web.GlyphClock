@@ -1,8 +1,8 @@
 {
   "layout": "why",
-  "title": "Miért működik a GlyphClock | GlyphClock",
+  "title": "A GlyphClock mögötti gondolkodás | GlyphClock",
   "description": "Miért javítja a fókuszt, a kreativitást és a koordinációt az óra pontosságának szimbolikus időblokkokkal való helyettesítése.",
-  "heading": "Miért működik a GlyphClock",
+  "heading": "A GlyphClock mögötti gondolkodás",
   "paragraphs": [
     "A GlyphClock azért működik, mert a napja nagy része nem profitál a pontos időből; a hasznos időből profitál. Az óraidőt koordinációra tervezték (gyárak, vonatok, menetrendek), nem gondolkodásra. Amikor percre pontos pontosságot alkalmaz összpontosítást igénylő munkára, állandó megszakításokat, mesterséges nyomást és rosszabb eredményeket kap. A GlyphClock megszünteti ezt az eltérést azáltal, hogy a pontosságot struktúrával váltja fel.",
     "Először is, az agyad nem percről percre működik. Az energiád ciklusokban emelkedik és csökken, nagyjából 90 percenként, Kleitman és későbbi tanulmányok szerint. Nem pontos, de elég következetes ahhoz, hogy megmutatkozzon abban, ahogyan az emberek természetesen dolgoznak. Még a magas teljesítményűek is, mint az Ericsson által tanulmányozott zenészek, alapértelmezetten fókuszált munkameneteket választanak szünetekkel nagyjából ezen a skálán. A GlyphClock nem kényszerít ritmust; igazodik egy már létezőhöz.",
