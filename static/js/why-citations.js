@@ -3,31 +3,31 @@
 
   var CITATIONS = {
     Thompson: {
-      url: 'https://snippets.bang-labs.eu/public/adam/377',
+      url: 'https://snippets.bang-labs.eu/public/bang/377',
       tip: '“Attention to time in labour depends... on the need for the synchronisation of labour.” - Time, Work-Discipline, and Industrial Capitalism (1967)'
     },
     Kleitman: {
-      url: 'https://snippets.bang-labs.eu/public/adam/378',
+      url: 'https://snippets.bang-labs.eu/public/bang/378',
       tip: 'Proposed the ~90-minute Basic Rest-Activity Cycle - Sleep and Wakefulness (1963)'
     },
     Lavie: {
-      url: 'https://snippets.bang-labs.eu/public/adam/379',
+      url: 'https://snippets.bang-labs.eu/public/bang/379',
       tip: 'Extended the 90-minute ultradian rhythm into waking alertness (1992)'
     },
     Ericsson: {
-      url: 'https://snippets.bang-labs.eu/public/adam/380',
+      url: 'https://snippets.bang-labs.eu/public/bang/380',
       tip: '“Expert performers... engage in practice without rest for only around an hour.” (2006)'
     },
     Zakay: {
-      url: 'https://snippets.bang-labs.eu/public/adam/381',
+      url: 'https://snippets.bang-labs.eu/public/bang/381',
       tip: 'Attentional-gate model: timing competes for the same attention as your task (1995)'
     },
     Amabile: {
-      url: 'https://snippets.bang-labs.eu/public/adam/382',
+      url: 'https://snippets.bang-labs.eu/public/bang/382',
       tip: '“When creativity is under the gun, it usually ends up getting killed.” (2002)'
     },
     Paivio: {
-      url: 'https://snippets.bang-labs.eu/public/adam/383',
+      url: 'https://snippets.bang-labs.eu/public/bang/383',
       tip: '“...specialized for dealing simultaneously with language and... nonverbal objects.” (1986)'
     }
   };
