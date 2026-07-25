@@ -1,0 +1,22 @@
+{{ define "main" }}
+<h1>{{ .Params.heading }}</h1>
+
+<p class="about-text">{{ .Params.intro | safeHTML }}</p>
+
+{{ range .Params.planners }}
+{{ $thumb := printf "/planners/thumbs/%s.png" (strings.TrimSuffix ".pdf" (path.Base .file)) }}
+<h2 class="privacy-heading">{{ .name }}</h2>
+<a class="planner-thumb-link" href="{{ .file }}">
+  <img class="planner-thumb" src="{{ $thumb }}" alt="{{ .name }}" loading="lazy">
+</a>
+<div class="extension-links">
+  <a class="extension-link" href="{{ .file }}" download>
+    <svg class="extension-link__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+    <span>{{ $.Params.download }}</span>
+  </a>
+</div>
+<p class="about-text">{{ .desc | safeHTML }}</p>
+{{ end }}
+
+<p class="about-creator">{{ .Params.footer | safeHTML }}</p>
+{{ end }}
