@@ -51,20 +51,55 @@
         return '';
     }
 
-    // The half-hour interval for `phase` spans [phase*30, phase*30 + 30) minutes
-    // after UTC midnight; render both edges in the viewer's own time zone.
-    function intervalRangeText(phase) {
+    // A window that starts `startMin` minutes after UTC midnight and lasts
+    // `spanMin` minutes, rendered as a range in the viewer's own time zone.
+    function localRangeText(startMin, spanMin, withTz) {
         var now = new Date();
-        var start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, phase * 30));
-        var end = new Date(start.getTime() + 30 * 60000);
+        var start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, startMin));
+        var end = new Date(start.getTime() + spanMin * 60000);
         var opts = { hour: 'numeric', minute: '2-digit' };
-        var tz = shortTimeZone(start);
+        var tz = withTz ? shortTimeZone(start) : '';
         return start.toLocaleTimeString([], opts) + '–' + end.toLocaleTimeString([], opts) +
             (tz ? ' ' + tz : '');
     }
 
+    // Current half-hour sub-period: phase*30 .. phase*30+30 after UTC midnight.
+    function intervalRangeText(phase) {
+        return localRangeText(phase * 30, 30, true);
+    }
+
+    // A whole 90-minute glyph block: block*90 .. block*90+90 after UTC midnight.
+    function blockRangeText(block) {
+        return localRangeText(block * 90, 90, false);
+    }
+
     function intervalShown() {
         try { return localStorage.getItem('glyphclock-interval') === 'true'; } catch (e) { return false; }
+    }
+
+    function toggleInterval() {
+        var next = !intervalShown();
+        try { localStorage.setItem('glyphclock-interval', next); } catch (e) {}
+        renderPhase(testMode ? testPhase : getPhaseFromTime());
+    }
+
+    // The decorative 16-glyph strip: show each block's local time range beneath
+    // its glyph while the interval readout is toggled on.
+    function renderGlyphStrip() {
+        var strip = document.querySelector('.about-glyphs');
+        if (!strip) return;
+        var show = intervalShown();
+        for (var i = 0; i < strip.children.length && i < 16; i++) {
+            var cell = strip.children[i];
+            var label = cell.querySelector('.glyph-range');
+            if (!label) {
+                label = document.createElement('span');
+                label.className = 'glyph-range';
+                cell.appendChild(label);
+            }
+            label.textContent = blockRangeText(i);
+            label.hidden = !show;
+        }
     }
 
     function ensureGlyphSpans(el) {
@@ -99,6 +134,7 @@
             readout.textContent = intervalRangeText(phase);
             readout.hidden = !intervalShown();
         }
+        renderGlyphStrip();
         var el = document.getElementById('currentTime');
         if (el) {
             ensureGlyphSpans(el);
@@ -290,9 +326,16 @@
             // In clock-only mode the first tap only wakes the page (handleActivity);
             // toggle the readout only once the rest of the page is already visible.
             if (document.body.classList.contains('clock-only')) return;
-            var next = !intervalShown();
-            try { localStorage.setItem('glyphclock-interval', next); } catch (e) {}
-            renderPhase(testMode ? testPhase : getPhaseFromTime());
+            toggleInterval();
+        });
+    }
+
+    // Tapping the glyph strip does the same, and reveals each block's range.
+    var glyphStrip = document.querySelector('.about-glyphs');
+    if (glyphStrip) {
+        glyphStrip.addEventListener('click', function (e) {
+            if (e.target.closest('#testModeToggle')) return; // robot keeps its own job
+            toggleInterval();
         });
     }
 
