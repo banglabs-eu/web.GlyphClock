@@ -120,6 +120,15 @@ reverses on the way back in — see the sequenced `transition` rules in
 Submitting a focus text via Enter jumps straight into clock-only mode instead
 of waiting out the timer.
 
+**Half-hour interval readout**: tapping the clock (`#currentTime`, or the
+embed widget) toggles a text line showing the current 30-min phase as a
+wall-clock range **in the viewer's own time zone** (`Intl` conversion from the
+UTC phase boundaries), persisted in `localStorage` under `glyphclock-interval`.
+Off by default. In the embed widget a plain click toggles it (modified/middle
+clicks still follow the backlink). The `interval_hint` tooltip param is
+English-only in `content/en/_index.md`; other languages fall back via
+`| default` in `layouts/index.html`, same as the hardcoded `title="Test mode"`.
+
 **Adding/editing a translation**: edit the relevant `content/<lang>/*.md`
 JSON file directly (or, for a brand-new key across all languages, easiest to
 re-derive via `scripts/migrate-i18n.js`'s pattern if a bulk source table

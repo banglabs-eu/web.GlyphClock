@@ -1,6 +1,7 @@
 {{ define "main" }}
 <div class="about-clock">
-  <h2 id="currentTime"></h2>
+  <h2 id="currentTime" title="{{ .Params.interval_hint | default "Tap to show the current half-hour" }}"></h2>
+  <div id="intervalReadout" class="interval-readout" aria-live="polite" hidden></div>
   <div id="testControls" class="test-controls" style="display:none">
     <button id="testPrev" class="test-btn">◀</button>
     <span id="testInfo"></span>

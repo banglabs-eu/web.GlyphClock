@@ -11,9 +11,18 @@
     '.gc-widget {' +
       'position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;' +
       'text-decoration: none; opacity: 0;' +
+      'display: flex; flex-direction: column; align-items: flex-end;' +
       'animation: gc-reveal 0.6s ease-out 0.6s forwards;' +
     '}' +
     '@keyframes gc-reveal { to { opacity: 1; } }' +
+    '.gc-widget .gc-readout {' +
+      'font: 600 11px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;' +
+      'color: #444; background: rgba(255, 255, 255, 0.92);' +
+      'box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);' +
+      'padding: 2px 7px; border-radius: 6px; margin-bottom: 6px;' +
+      'white-space: nowrap; letter-spacing: 0.02em;' +
+    '}' +
+    '.gc-widget .gc-readout[hidden] { display: none; }' +
     '.gc-widget .gc-box {' +
       'height: 80px; width: 80px; position: relative;' +
     '}' +
@@ -162,11 +171,48 @@
   a.target = '_blank';
   a.rel = 'noopener';
   a.title = 'GlyphClock';
-  a.innerHTML = '<div class="gc-box"><span class="gc-g"></span><span class="gc-g"></span><span class="gc-g"></span></div>';
+  a.innerHTML = '<span class="gc-readout" hidden></span><div class="gc-box"><span class="gc-g"></span><span class="gc-g"></span><span class="gc-g"></span></div>';
   document.body.appendChild(a);
 
   var box = a.querySelector('.gc-box');
   var spans = a.querySelectorAll('.gc-g');
+  var readout = a.querySelector('.gc-readout');
+
+  function gcShortTz(d) {
+    try {
+      var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i].type === 'timeZoneName') return parts[i].value;
+      }
+    } catch (e) {}
+    return '';
+  }
+
+  // The current half-hour interval, spanning [phase*30, phase*30 + 30) minutes
+  // after UTC midnight, rendered in the viewer's own time zone.
+  function gcRangeText(phase) {
+    var now = new Date();
+    var start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, phase * 30));
+    var end = new Date(start.getTime() + 30 * 60000);
+    var opts = { hour: 'numeric', minute: '2-digit' };
+    var tz = gcShortTz(start);
+    return start.toLocaleTimeString([], opts) + '–' + end.toLocaleTimeString([], opts) +
+      (tz ? ' ' + tz : '');
+  }
+
+  function gcReadoutShown() {
+    try { return localStorage.getItem('glyphclock-interval') === 'true'; } catch (e) { return false; }
+  }
+
+  // Plain click toggles the interval readout; modified / middle clicks still
+  // open glyphclock.bang-labs.eu via the anchor's href.
+  a.addEventListener('click', function (e) {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    var next = !gcReadoutShown();
+    try { localStorage.setItem('glyphclock-interval', next); } catch (err) {}
+    readout.hidden = !next;
+  });
 
   function update() {
     var now = new Date();
@@ -176,6 +222,8 @@
     var glyph = S[block];
     var count = sub + 1;
     for (var i = 0; i < 3; i++) spans[i].textContent = glyph;
+    readout.textContent = gcRangeText(block * 3 + sub);
+    readout.hidden = !gcReadoutShown();
 
     // Remove any previous entrance class
     var match = box.className.match(/gc-entrance-\S+/);

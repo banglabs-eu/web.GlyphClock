@@ -41,6 +41,32 @@
         return { glyph: SYMBOLS[block], count: sub + 1 };
     }
 
+    function shortTimeZone(d) {
+        try {
+            var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+            for (var i = 0; i < parts.length; i++) {
+                if (parts[i].type === 'timeZoneName') return parts[i].value;
+            }
+        } catch (e) {}
+        return '';
+    }
+
+    // The half-hour interval for `phase` spans [phase*30, phase*30 + 30) minutes
+    // after UTC midnight; render both edges in the viewer's own time zone.
+    function intervalRangeText(phase) {
+        var now = new Date();
+        var start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, phase * 30));
+        var end = new Date(start.getTime() + 30 * 60000);
+        var opts = { hour: 'numeric', minute: '2-digit' };
+        var tz = shortTimeZone(start);
+        return start.toLocaleTimeString([], opts) + '–' + end.toLocaleTimeString([], opts) +
+            (tz ? ' ' + tz : '');
+    }
+
+    function intervalShown() {
+        try { return localStorage.getItem('glyphclock-interval') === 'true'; } catch (e) { return false; }
+    }
+
     function ensureGlyphSpans(el) {
         if (el.querySelectorAll('.glyph-item').length === 0) {
             for (var i = 0; i < 3; i++) {
@@ -68,6 +94,11 @@
         var info = getDisplayForPhase(phase);
         var block = Math.floor(phase / 3);
         updateFavicon(block);
+        var readout = document.getElementById('intervalReadout');
+        if (readout) {
+            readout.textContent = intervalRangeText(phase);
+            readout.hidden = !intervalShown();
+        }
         var el = document.getElementById('currentTime');
         if (el) {
             ensureGlyphSpans(el);
@@ -251,6 +282,19 @@
     }
     document.addEventListener('click', handleActivity);
     document.addEventListener('touchstart', handleActivity);
+
+    // Tap the clock to toggle the current half-hour interval (viewer's time zone).
+    var clockEl = document.getElementById('currentTime');
+    if (clockEl) {
+        clockEl.addEventListener('click', function () {
+            // In clock-only mode the first tap only wakes the page (handleActivity);
+            // toggle the readout only once the rest of the page is already visible.
+            if (document.body.classList.contains('clock-only')) return;
+            var next = !intervalShown();
+            try { localStorage.setItem('glyphclock-interval', next); } catch (e) {}
+            renderPhase(testMode ? testPhase : getPhaseFromTime());
+        });
+    }
 
     startTime();
 

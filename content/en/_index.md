@@ -8,5 +8,6 @@
   "planners_link": "<a href=\"planners.html\">Free printable planners</a>",
   "footer": "Created by <a href=\"https://bang-labs.eu\" class=\"banglabs-brand\">Bang Labs</a>.",
   "focus_add": "+ add current focus",
-  "focus_placeholder": "What are you focusing on?"
+  "focus_placeholder": "What are you focusing on?",
+  "interval_hint": "Tap to show the current half-hour"
 }
